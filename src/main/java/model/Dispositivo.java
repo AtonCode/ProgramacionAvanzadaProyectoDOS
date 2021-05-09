@@ -1,4 +1,4 @@
 package model;
 
-public class Dispositivo {
+public class Dispositivo extends Producto {
 }

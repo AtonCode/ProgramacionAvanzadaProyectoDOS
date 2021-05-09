@@ -1,4 +1,4 @@
 package model;
 
-public class EmpleadoSucursal {
+public class EmpleadoSucursal extends Usuario {
 }

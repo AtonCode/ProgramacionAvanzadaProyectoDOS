@@ -1,4 +1,4 @@
 package model;
 
-public class Sucursal {
+public class Sucursal extends Tienda {
 }

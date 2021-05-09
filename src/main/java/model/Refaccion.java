@@ -1,4 +1,4 @@
 package model;
 
-public class Refaccion {
+public class Refaccion extends Producto{
 }
