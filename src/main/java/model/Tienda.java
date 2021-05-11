@@ -1,8 +1,13 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Tienda {
-    protected int id;
-    protected String nombre;
-    protected String direccion;
-    protected boolean abierta;
+    private int id;
+    private String nombre;
+    private Administrador administrador;
+
+    public Tienda() {
+    }
+
 }

@@ -6,6 +6,9 @@ public class Usuario {
     private String nombre;
     private String tipoUsuario;
 
+    public Usuario() {
+    }
+
     public Usuario(int cedula, String nombre, String tipoUsuario) {
         this.cedula = cedula;
         this.nombre = nombre;

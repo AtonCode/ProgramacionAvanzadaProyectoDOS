@@ -2,12 +2,25 @@ package model;
 
 public class Administrador extends Usuario{
 
-    private int contraseña;
-    private int idSucursal;
+    private long Contraseña;
+    private float salario;
 
-    public Administrador(int cedula, String nombre, String tipoUsuario, int contraseña, int idSucursal) {
+
+    public Administrador(){
+        super();
+    }
+
+    public Administrador(int cedula, String nombre, String tipoUsuario, long contraseña, float salario) {
         super(cedula, nombre, tipoUsuario);
-        this.contraseña = contraseña;
-        this.idSucursal = idSucursal;
+        Contraseña = contraseña;
+        this.salario = salario;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+    public void agregar_cliente(){
+
+
     }
 }
