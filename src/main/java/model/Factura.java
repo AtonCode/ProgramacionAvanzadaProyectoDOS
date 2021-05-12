@@ -4,20 +4,32 @@ import java.util.ArrayList;
 
 public class Factura {
 
-    private int TotalPrecio;
-    private Cliente cliente;
+    private int totalPrecio;
+    private ArrayList<Producto> carritoCompra;
 
-    public Factura(Cliente cliente) {
-        this.cliente = cliente;
+    public Factura(ArrayList<Producto> carritoCompra) {
+        this.carritoCompra = carritoCompra;
         }
-    public void imprimir_factura(){
 
-        }
+    public int getTotalPrecio() {
+        return totalPrecio;
+    }
+    public ArrayList<Producto> getCarritoCompra() {
+        return carritoCompra;
+    }
+    public int getNumeroProductos(){
+        return this.carritoCompra.size();
+    }
+
     public void calcular_TotalPrecio(){
 
+        for (Producto p:carritoCompra) {
+            this.totalPrecio += p.precio;
         }
+
+    }
     public void generar_txt(){
 
-        }
+    }
 
 }

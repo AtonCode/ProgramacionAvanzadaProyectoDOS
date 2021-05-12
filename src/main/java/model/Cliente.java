@@ -1,52 +1,15 @@
 package model;
 
-public class Cliente extends Usuario{
+import java.util.ArrayList;
 
-    private int numeroCompras;
-    private float descuentos;
-    private int puntos;
+public class Cliente{
 
-    public Cliente(int cedula, String nombre, String tipoUsuario) {
-        super(cedula, nombre, tipoUsuario);
-    }
+    private int cedula;
+    private String nombre;
+    private String tipoUsuario;
 
-    public Cliente(int cedula, String nombre, String tipoUsuario, int numeroCompras, float descuentos, int puntos) {
-        super(cedula, nombre, tipoUsuario);
-        this.numeroCompras = numeroCompras;
-        this.descuentos = descuentos;
-        this.puntos = puntos;
-    }
+    private ArrayList<Venta> historialCompras=new ArrayList<Venta>();
 
-    public int getNumeroCompras() {
-        return numeroCompras;
-    }
 
-    public void setNumeroCompras(int numeroCompras) {
-        this.numeroCompras = numeroCompras;
-    }
 
-    public float getDescuentos() {
-        return descuentos;
-    }
-
-    public void setDescuentos(float descuentos) {
-        this.descuentos = descuentos;
-    }
-
-    public int getPuntos() {
-        return puntos;
-    }
-
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "numeroCompras=" + numeroCompras +
-                ", descuentos=" + descuentos +
-                ", puntos=" + puntos +
-                '}';
-    }
 }
