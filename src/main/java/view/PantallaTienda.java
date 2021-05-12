@@ -16,8 +16,8 @@ public class PantallaTienda {
         opcion = menuPrincipal();
 
         if(opcion == 5){
-            controlTienda.
-            opcion = menuSucursal(sucursal);
+            //controlTienda.
+            //opcion = menuSucursal(sucursal);
         }
 
 

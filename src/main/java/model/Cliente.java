@@ -6,7 +6,6 @@ public class Cliente{
 
     private int cedula;
     private String nombre;
-    private String tipoUsuario;
 
     private ArrayList<Venta> historialCompras=new ArrayList<Venta>();
 
@@ -21,5 +20,9 @@ public class Cliente{
 
     public String getNombre() {
         return nombre;
+    }
+
+    public void llenarHistorialCompras(){
+
     }
 }
