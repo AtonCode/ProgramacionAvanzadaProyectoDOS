@@ -19,6 +19,6 @@ public class ControlTienda {
     }
 
     public void crerSucursal(){
-        
+
     }
 }

@@ -2,6 +2,7 @@
 package view;
 
 import control.*;
+import model.Cliente;
 import model.Sucursal;
 
 import java.util.Scanner;
@@ -50,6 +51,20 @@ public class PantallaTienda {
         System.out.println("                                ");
         System.out.println("         Menu Sucursal          ");
         System.out.println("1) Comprar");
+        System.out.println("2) Salir");
+        System.out.println("Dijita el numero de la opcion que desee: ");
+        opcion = entrada.nextInt();
+
+        return opcion;
+    }
+
+    public static int menuComrar(Cliente cliente){
+        int opcion;
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Bienvenido " + cliente.getNombre());
+        System.out.println("                                ");
+        System.out.println("         Menu Compra         ");
+        System.out.println("1) Ver Produtos");
         System.out.println("2) Salir");
         System.out.println("Dijita el numero de la opcion que desee: ");
         opcion = entrada.nextInt();
