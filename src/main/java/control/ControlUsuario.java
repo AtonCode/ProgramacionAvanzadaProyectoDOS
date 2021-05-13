@@ -2,8 +2,19 @@ package control;
 
 import model.Cliente;
 
-import java.util.ArrayList;
-
 public class ControlUsuario {
-    private ArrayList<Cliente> clientes=new ArrayList<Cliente>();
+
+    private Cliente cliente;
+
+    public ControlUsuario() {}
+
+    public void cargar_Clientes(){
+
+    }
+    public void guardar_Clientes(){
+
+    }
+
+
+
 }

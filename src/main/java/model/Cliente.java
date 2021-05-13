@@ -7,11 +7,12 @@ public class Cliente{
     private int cedula;
     private String nombre;
 
-    private ArrayList<Venta> historialCompras=new ArrayList<Venta>();
+    private ArrayList<Venta> historialCompras;
 
     public Cliente(int cedula, String nombre) {
         this.cedula = cedula;
         this.nombre = nombre;
+        this.historialCompras = new ArrayList<Venta>();
     }
 
     public int getCedula() {
@@ -23,6 +24,9 @@ public class Cliente{
     }
 
     public void llenarHistorialCompras(){
+
+    }
+    public void mostrarHistorialCompras(){
 
     }
 }

@@ -2,21 +2,21 @@ package control;
 
 import model.Producto;
 
-import java.util.ArrayList;
-
 public class ControlInventario {
 
-    private ArrayList<Producto> inventario=new ArrayList<Producto>();
+    private Producto producto;
 
-    public void Cargar_inventario(){
-
-    }
-    public void añadir_producto(){
+    public ControlInventario() {
 
     }
-    public void eliminar_producto(){
+
+    public void cargar_inventario(){
 
     }
+    public void guardar_inventario(){
+
+    }
+
 
 
 }

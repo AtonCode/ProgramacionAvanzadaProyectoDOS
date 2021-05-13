@@ -24,7 +24,7 @@ public class Factura {
     public void calcular_TotalPrecio(){
 
         for (Producto p:carritoCompra) {
-            this.totalPrecio += p.precio;
+            this.totalPrecio += p.getPrecio();
         }
 
     }

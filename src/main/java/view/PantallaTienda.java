@@ -1,7 +1,7 @@
 
 package view;
 
-import control.*;
+import control.ControlTienda;
 import model.Cliente;
 import model.Sucursal;
 
@@ -12,7 +12,16 @@ public class PantallaTienda {
     public static void main(String[] args) {
 
         int opcion;
-        ControlTienda controlTienda = new ControlTienda(2);
+        ControlTienda controlTienda = new ControlTienda();
+        controlTienda.crearSucursal("La 45", "BogotaDC");
+        controlTienda.crearSucursal("La 100", "BogotaDC");
+        controlTienda.crearCliente(1,"Aton");
+
+
+
+
+
+
         opcion = menuPrincipal();
 
         if(opcion == 5){
