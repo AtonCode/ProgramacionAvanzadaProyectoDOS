@@ -8,6 +8,9 @@ public class Cliente{
     private String nombre;
     private ArrayList<Factura> historialCompras;
 
+    public Cliente() {
+    }
+
     public Cliente(double cedula, String nombre) {
         this.cedula = cedula;
         this.nombre = nombre;
@@ -25,7 +28,9 @@ public class Cliente{
     public void HistorialCompras(Factura factura) {
         this.historialCompras.add(factura);
     }
+
     public ArrayList<Factura> getHistorialCompras() {
         return historialCompras;
     }
+
 }

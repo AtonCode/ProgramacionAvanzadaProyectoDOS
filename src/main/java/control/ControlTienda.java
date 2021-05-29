@@ -48,21 +48,20 @@ public class ControlTienda {
         for (Cliente c: this.tienda.getClientesGeneral()) {
             if((c.getCedula()== cedula) && (c.getNombre() == nombre)){
                 this.tienda.getClientesGeneral().remove(c);
+                break;
             }else System.out.println("No Existe");
         }
     }
-    public Cliente MostrarCliente(double cedula, String nombre){
-        int pos;
-        Cliente cliente = new Cliente(cedula, nombre);
-        pos=tienda.getClientesGeneral().indexOf(cliente);
-        return (tienda.getClientesGeneral().get(pos));
-    }
 
-    public Cliente mostrarClientes(){
-        for (Cliente c:this.tienda.getClientesGeneral()) {
-            return c;
+    public Cliente buscarCliente(double cedula){
+        Cliente cliente=new Cliente ();
+        for (Cliente c: this.tienda.getClientesGeneral()) {
+            if(c.getCedula()== cedula){
+                cliente=c;
+                break;
+            }else System.out.println("No Existe");
         }
-        return null;
+        return cliente;
     }
 
     //public Factura comprar(){
