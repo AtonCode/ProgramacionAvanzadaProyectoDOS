@@ -1,7 +1,6 @@
 
 package view;
 
-import control.ControlInventario;
 import control.ControlTienda;
 import model.Cliente;
 import model.Producto;
@@ -17,7 +16,7 @@ public class PantallaTienda {
         ControlTienda controlTienda = new ControlTienda();
 
         //Sucursales
-        controlTienda.crearSucursal(1,"La 45", "BogotaDC");
+        controlTienda.crearSucursal(1,"La 45", "Bogota D.C");
         controlTienda.crearSucursal(2,"La 100", "Villavicencio");
         //Clientes
         controlTienda.crearCliente(1, "Aton");
@@ -38,7 +37,7 @@ public class PantallaTienda {
                                  String opt = "y";
                                  while (opt == "y"){
                                      Scanner sc = new Scanner(System.in);
-                                     System.out.println(" Ingrese los datos de la que desea crear sucursal ");
+                                     System.out.println(" Ingrese los datos de la  nueva sucursal");
                                      System.out.println("                                    ");
                                      System.out.println("------------------------------------");
 
@@ -64,40 +63,47 @@ public class PantallaTienda {
                             break;
                         case 2:
                             Scanner op = new Scanner(System.in);
+                            op.reset();
+
+                            System.out.println(" ");
+                            System.out.println("Sucursales Disponibles para Eliminar");
+                            System.out.println("-------------------------------------------------------------------------------------------------");
                             for (Sucursal sucursal : controlTienda.getTienda().getSucursales()) {
                                 System.out.println("Id Sucursal: " + sucursal.getIdSucursal());
-                                System.out.println("Nombre Sucursal: " + sucursal.getNombre()+'\t'+" Ubicacion Sucursal: " +sucursal.getUbicacion());
-                                System.out.println("---------------------------------");
+                                System.out.println("Nombre Sucursal: " + sucursal.getNombre()+'\t'+" | Ubicacion Sucursal: " +sucursal.getUbicacion());
+                                System.out.println("-------------------------------------------------------------------------------------------------");
                             }
                             System.out.println(" ");
-                            System.out.println(" Ingrese los datos de la que desea sucursal eliminar  ");
-                            System.out.println("                                    ");
-                            System.out.println("------------------------------------");
 
-                            System.out.println(" Ingrese ID: ");
-                            int id;
-                            id = op.nextInt();
-                            controlTienda.eliminarSucursal(id);
                             System.out.println("------------------------------------");
+                            System.out.println("Ingrese ID Sucursal a Eliminar: ");
+                            int idSucursalEliminar;
+                            idSucursalEliminar = op.nextInt();
+                            op.reset();
+                            System.out.println("------------------------------------");
+                            controlTienda.eliminarSucursal(idSucursalEliminar);
+
 
                             break;
                         case 3:
-
+                            Scanner entrada=new Scanner(System.in);
+                            entrada.reset();
                             for (Sucursal sucursal : controlTienda.getTienda().getSucursales()) {
-                                System.out.println("id Sucursal:" + sucursal.getIdSucursal());
+                                System.out.println("ID Sucursal:" + sucursal.getIdSucursal());
                                 System.out.println(sucursal.getNombre()+'\t'+sucursal.getUbicacion());
-                                System.out.println("                              ");
+                                System.out.println(" ");
                             }
-
-                            System.out.println("digite el Id sucursal");
-                            double elec;
-                            Scanner desicion=new Scanner(System.in);
-                            elec=desicion.nextDouble();
+                            System.out.println("-------------------------------------------------");
+                            System.out.println(" ");
+                            System.out.println("Digite el ID Sucursal: ");
+                            double idSucursal;
+                            idSucursal=entrada.nextDouble();
+                            entrada.reset();
 
                             int contandor=0;
-                            for(Sucursal tempsuc: controlTienda.getTienda().getSucursales()){
+                            for(Sucursal sucursal: controlTienda.getTienda().getSucursales()){
                                 contandor++;
-                                if(tempsuc.getIdSucursal()==elec){
+                                if(sucursal.getIdSucursal() == idSucursal){
 
                                     int elector3=1;
                                     while(elector3==1) {
@@ -106,12 +112,12 @@ public class PantallaTienda {
                                         switch (des) {
 
                                             case 1:
-                                                for(Producto tempP: controlTienda.getTienda().getSucursales().get(contandor-1).getInventario()){
-                                                    if(tempP.getId()==controlTienda.getTienda().getSucursales().get(contandor-1).getIdSucursal()) {
+                                                for(Producto producto : controlTienda.getTienda().getSucursales().get(contandor-1).getInventario()){
+                                                    if(producto.getId()==controlTienda.getTienda().getSucursales().get(contandor-1).getIdSucursal()) {
                                                        System.out.println("funciona");
-                                                        tempP.getCantidad();
-                                                        tempP.getId();
-                                                        tempP.getIdSucursal();
+                                                       System.out.println(producto.getCantidad());
+                                                       System.out.println(producto.getId());
+                                                       System.out.println(producto.getIdSucursal());
                                                     }
                                                 }
                                                 break;

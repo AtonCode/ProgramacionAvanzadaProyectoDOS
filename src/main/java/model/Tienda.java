@@ -15,7 +15,7 @@ public class Tienda {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
 
-        this.sucursales=new ArrayList<Sucursal>();
+        this.sucursales = new ArrayList<Sucursal>();
         this.inventarioGeneral = new ArrayList<Producto>();
         this.clientesGeneral = new ArrayList<Cliente>();
     }
