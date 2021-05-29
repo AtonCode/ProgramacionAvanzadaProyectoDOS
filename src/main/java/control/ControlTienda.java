@@ -73,11 +73,14 @@ public class ControlTienda {
         this.tienda.setSucursales(sucursal);
         this.numSucursales = this.tienda.getNumSucursales();
     }
-    public void eliminarSucursal(int id){
-        for (Sucursal s: this.tienda.getSucursales()) {
-            if((s.getIdSucursal() == id)){
-                this.tienda.eliminarSucursal(s);
-            }else System.out.println("No Existe");
+    public void eliminarSucursal(int idSucursalEliminar){
+        for (Sucursal sucursal: this.tienda.getSucursales()){
+
+            if((sucursal.getIdSucursal() == idSucursalEliminar)){
+                this.tienda.eliminarSucursal(sucursal);
+                System.out.println("Sucursal ID: " + sucursal.getIdSucursal() + " ELIMINADA");
+
+            }else System.out.println("No Existe Sucursal ID: " + sucursal.getIdSucursal());
         }
         this.numSucursales = this.tienda.getNumSucursales();
     }
