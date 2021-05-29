@@ -1,6 +1,6 @@
 package model;
 
-public class Producto {
+public abstract class Producto {
 
     private double id;
     private double idSucursal;
@@ -10,11 +10,20 @@ public class Producto {
     private double precio;
     private String descripcion;
     private String resumen;
-    private Especificacion especificacion[];
 
     public Producto() {
     }
 
+    public Producto(double id, double idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen) {
+        this.id = id;
+        this.idSucursal = idSucursal;
+        this.cantidad = cantidad;
+        this.tipo = tipo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.resumen = resumen;
+    }
 
     public double getId() {
         return id;
@@ -58,16 +67,24 @@ public class Producto {
     public void setResumen(String resumen) {
         this.resumen = resumen;
     }
-    public Especificacion[] getEspecificacion() {
-        return especificacion;
-    }
-    public void setEspecificacion(Especificacion[] especificacion) {
-        this.especificacion = especificacion;
-    }
     public double getIdSucursal() {
         return idSucursal;
     }
     public void setIdSucursal(double idSucursal) {
         this.idSucursal = idSucursal;
+    }
+    public abstract String getInfo();
+
+    @Override
+    public String toString() {
+        return "Producto" +'\t' +
+                "id=" + id +
+                " idSucursal=" + idSucursal +'\t'+
+                " cantidad=" + cantidad +'\t'+
+                " tipo=" + tipo + '\t'+
+                " nombre=" + nombre + '\t'+
+                " precio=" + precio +'\t'+
+                " descripcion='" + descripcion + '\t' +
+                " resumen='" + resumen + '\t';
     }
 }
