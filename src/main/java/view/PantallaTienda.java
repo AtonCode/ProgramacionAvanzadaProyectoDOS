@@ -142,7 +142,8 @@ public class PantallaTienda {
                                                 System.out.println("---------------------------------------------------------------");
                                                 System.out.println(" ");
                                                 break;
-                                            case 2:
+                                            case 2:// Añadir Producto
+
 
                                                 break;
                                             case 3:// Eliminar Producto
