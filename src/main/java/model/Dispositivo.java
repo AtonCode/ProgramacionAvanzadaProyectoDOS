@@ -1,6 +1,6 @@
 package model;
 
-public class Dispositivo extends Producto{
+public class Dispositivo extends Producto {
     private String pantalla;
     private String almacenamient;
     private String procesamiento;
@@ -93,7 +93,7 @@ public class Dispositivo extends Producto{
 
     @Override
     public String getInfo() {
-         return super.toString() + "Dispositivo" + '\t' +
+        return super.toString() + ("Dispositivo" + '\t' +
                 "pantalla= " + pantalla + '\t' +
                 " almacenamient= " + almacenamient + '\t' +
                 " procesamiento= " + procesamiento + '\t' +
@@ -101,8 +101,8 @@ public class Dispositivo extends Producto{
                 " descripcion_fisica= " + descripcion_fisica + '\t' +
                 " conectividad= " + conectividad + '\t' +
                 " informacinAdicional= " + informacinAdicional + '\t' +
-                " descripcion= " + descripcion + '\t';
+                " descripcion= " + descripcion + '\t');
 
 
     }
-
+}

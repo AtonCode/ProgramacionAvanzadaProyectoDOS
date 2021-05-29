@@ -39,13 +39,11 @@ public class Componente extends Producto{
 
     @Override
     public String getInfo() {
-        return "Componente{" +
-                "dispsitivoPertence='" + dispsitivoPertence + '\'' +
-                ", descripcion_fisica='" + descripcion_fisica + '\'' +
-                ", informacinAdicional='" + informacinAdicional + '\'' +
-                '}';
+        return super.toString()+("Componente" + '\t'+
+                "dispsitivoPertence= " + dispsitivoPertence + '\t' +
+                " descripcion_fisica= " + descripcion_fisica + '\t' +
+                " informacinAdicional= " + informacinAdicional + '\t');
     }
-
-    }
+}
 
 

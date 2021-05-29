@@ -35,8 +35,8 @@ public class PantallaTienda {
                             switch (eleccion) {
                              case 1: // crea una sucursal
                                  int count = 3;
-                                 String opt = "y";
-                                 while (opt == "y"){
+                                 int opt = 1;
+                                 while (opt == 1){
                                      Scanner sc = new Scanner(System.in);
                                      System.out.println(" Ingrese los datos de la  nueva sucursal");
                                      System.out.println("                                    ");
@@ -57,7 +57,9 @@ public class PantallaTienda {
 
                                      System.out.println("------------------------------------");
                                      System.out.println("Desea Crear Una mas ");
-                                     opt = sc.nextLine();
+                                     System.out.println("1).si");
+                                     System.out.println("2).no");
+                                     opt = sc.nextInt();
                                      System.out.println("------------------------------------");
                                      System.out.println("------------------------------------");
                                  }
@@ -114,8 +116,8 @@ public class PantallaTienda {
 
                                             case 1:
                                                 for(Producto producto : controlTienda.getTienda().getSucursales().get(contandor-1).getInventario()){
-                                                    if(producto.getId()==controlTienda.getTienda().getSucursales().get(contandor-1).getIdSucursal()) {
-                                                       System.out.println("funciona");
+                                                    if(producto.getId()==controlTienda.getTienda().getSucursales().get(contandor-1).getIdSucursal()){
+
                                                        System.out.println(producto.getCantidad());
                                                        System.out.println(producto.getId());
                                                        System.out.println(producto.getIdSucursal());
@@ -123,6 +125,7 @@ public class PantallaTienda {
                                                 }
                                                 break;
                                             case 2:
+
                                                 break;
                                             case 3:
                                                 break;

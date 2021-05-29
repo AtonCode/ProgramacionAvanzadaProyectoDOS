@@ -65,6 +65,7 @@ public class ControlTienda {
     }
 
     //public Factura comprar(){
+
     //}
 
     //Sucursal
@@ -114,10 +115,10 @@ public class ControlTienda {
             }else System.out.println("No Disponible");
         }
     }
-    public void addProductoInventario(){
-        Producto p = new Producto();
-        this.tienda.getInventarioGeneral().add(p);
+    public void addProductoInventario(Producto producto){
+        this.tienda.getInventarioGeneral().add(producto);
     }
+
     public void eliminarProductoInventario(int id){
         for (Producto p: this.tienda.getInventarioGeneral()) {
             if((p.getId() == id)){
