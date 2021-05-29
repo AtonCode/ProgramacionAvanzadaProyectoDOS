@@ -45,6 +45,17 @@ public class Tienda {
     public int getNumSucursales() {
         return sucursales.size();
     }
+    public void agregarProductos(ArrayList <Producto> productos){
+        for(Producto pr: productos) {
+            this.inventarioGeneral.add(pr); // recive un arraylist de inventraio y lo recorrre, copiando cada producto en el array general
+        }
+    }
+    public void setSucursales(Sucursal s) {
+        this.sucursales.add(s);
+    }
 
+    public void eliminarSucursal(Sucursal s){
+        this.sucursales.remove(s);
+    }
 
 }

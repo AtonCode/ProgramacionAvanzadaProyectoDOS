@@ -4,18 +4,17 @@ import java.util.ArrayList;
 
 public class Cliente{
 
-    private int cedula;
+    private double cedula;
     private String nombre;
+    private ArrayList<Factura> historialCompras;
 
-    private ArrayList<Venta> historialCompras;
-
-    public Cliente(int cedula, String nombre) {
+    public Cliente(double cedula, String nombre) {
         this.cedula = cedula;
         this.nombre = nombre;
-        this.historialCompras = new ArrayList<Venta>();
+        this.historialCompras = new ArrayList<Factura>();
     }
 
-    public int getCedula() {
+    public double getCedula() {
         return cedula;
     }
 
@@ -23,10 +22,10 @@ public class Cliente{
         return nombre;
     }
 
-    public void llenarHistorialCompras(){
-
+    public void HistorialCompras(Factura factura) {
+        this.historialCompras.add(factura);
     }
-    public void mostrarHistorialCompras(){
-
+    public ArrayList<Factura> getHistorialCompras() {
+        return historialCompras;
     }
 }

@@ -4,6 +4,8 @@ import model.Producto;
 import model.Sucursal;
 import model.Tienda;
 
+import java.util.ArrayList;
+
 
 public class ControlTienda {
 
@@ -37,11 +39,11 @@ public class ControlTienda {
     }
 
     //Cliente
-    public void crearCliente(int cedula, String nombre){
+    public void crearCliente(double cedula, String nombre){
         Cliente cliente = new Cliente(cedula,nombre);
         this.tienda.getClientesGeneral().add(cliente);
     }
-    public void eliminar_Cliente(int cedula, String nombre){
+    public void eliminarCliente(double cedula, String nombre){
 
         for (Cliente c: this.tienda.getClientesGeneral()) {
             if((c.getCedula()== cedula) && (c.getNombre() == nombre)){
@@ -49,6 +51,13 @@ public class ControlTienda {
             }else System.out.println("No Existe");
         }
     }
+    public Cliente MostrarCliente(double cedula, String nombre){
+        int pos;
+        Cliente cliente = new Cliente(cedula, nombre);
+        pos=tienda.getClientesGeneral().indexOf(cliente);
+        return (tienda.getClientesGeneral().get(pos));
+    }
+
     public Cliente mostrarClientes(){
         for (Cliente c:this.tienda.getClientesGeneral()) {
             return c;
@@ -56,16 +65,19 @@ public class ControlTienda {
         return null;
     }
 
+    //public Factura comprar(){
+    //}
+
     //Sucursal
-    public void crearSucursal(String nombre, String ubicacion){
-        Sucursal sucursal = new Sucursal(nombre,ubicacion);
-        this.tienda.getSucursales().add(sucursal);
+    public void crearSucursal(int id, String nombre, String ubicacion){
+        Sucursal sucursal = new Sucursal(id, nombre,ubicacion);
+        this.tienda.setSucursales(sucursal);
         this.numSucursales = this.tienda.getNumSucursales();
     }
-    public void eliminarSucursal(String nombre, String ubicacion){
+    public void eliminarSucursal(int id){
         for (Sucursal s: this.tienda.getSucursales()) {
-            if((s.getNombre() == nombre) && (s.getUbicacion() == ubicacion)){
-                this.tienda.getSucursales().remove(s);
+            if((s.getIdSucursal() == id)){
+                this.tienda.eliminarSucursal(s);
             }else System.out.println("No Existe");
         }
         this.numSucursales = this.tienda.getNumSucursales();
@@ -77,12 +89,26 @@ public class ControlTienda {
         return null;
     }
 
+    public void CrearInventarioGeneral() {// esta funcion coge el inventario de las sucursales y l concatena en el inventario general
+
+        for(int i=0; i<numSucursales;i++) {
+            ArrayList<Sucursal> tempsucursales = new ArrayList<Sucursal>();// array temporal en el cual almaceno las sucusales
+            tempsucursales.addAll(this.tienda.getSucursales());//arraylist temporal
+
+            Sucursal[] temp=new Sucursal[tempsucursales.size()];//creo un array que me almacena las sucursales
+            temp= tempsucursales.toArray(temp);// transfier la informacion del array.
+
+                tienda.agregarProductos(temp[i].getInventario());
+        }
+    }
+
     //Inventario
     public void consultaDisponibilidadProductoInventario(int id){
         for (Producto p: this.tienda.getInventarioGeneral()) {
-            if((p.getId() == id)){
-                System.out.println("Disponible");
-
+            if(p.getId() == id){
+                if(p.getCantidad()!=0) {
+                    System.out.println("Disponible");
+                }
             }else System.out.println("No Disponible");
         }
     }
@@ -104,9 +130,4 @@ public class ControlTienda {
             }else System.out.println("No Existe");
         }
     }
-
-
-
-
-
 }

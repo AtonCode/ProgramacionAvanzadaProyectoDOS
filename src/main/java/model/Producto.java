@@ -2,8 +2,8 @@ package model;
 
 public class Producto {
 
-    private int id;
-    private int idSucursal;
+    private double id;
+    private double idSucursal;
     private int cantidad;
     private String tipo;
     private String nombre;
@@ -16,23 +16,17 @@ public class Producto {
     }
 
 
-    public int getId() {
+    public double getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(double id) {
         this.id = id;
-    }
-    public int getIdSucursal() {
-        return idSucursal;
     }
     public int getCantidad() {
         return cantidad;
     }
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-    public void setIdSucursal(int idSucursal) {
-        this.idSucursal = idSucursal;
     }
     public String getTipo() {
         return tipo;
@@ -69,5 +63,11 @@ public class Producto {
     }
     public void setEspecificacion(Especificacion[] especificacion) {
         this.especificacion = especificacion;
+    }
+    public double getIdSucursal() {
+        return idSucursal;
+    }
+    public void setIdSucursal(double idSucursal) {
+        this.idSucursal = idSucursal;
     }
 }

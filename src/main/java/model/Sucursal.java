@@ -3,19 +3,25 @@ package model;
 import java.util.ArrayList;
 
 public class Sucursal extends Tienda {
-
+    private int idSucursal;
     private boolean abierta;
-    private ArrayList<Venta> historialVentas=new ArrayList<Venta>();
+    private ArrayList<Producto> inventario=new ArrayList<Producto>();
 
-    public Sucursal(String nombre, String ubicacion) {
+
+    public Sucursal(int idSucursal, String nombre, String ubicacion) {
         super(nombre, ubicacion);
         this.abierta = true;
+        this.idSucursal = idSucursal;
     }
 
-    public boolean isAbierta() {
-        return abierta;
+    public int getIdSucursal() {
+        return idSucursal;
     }
+    public boolean isAbierta() { return abierta; }
     public void setAbierta(boolean abierta) {
         this.abierta = abierta;
+    }
+    public ArrayList<Producto> getInventario() {
+        return inventario;
     }
 }

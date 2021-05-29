@@ -21,6 +21,10 @@ public class Factura {
         return this.carritoCompra.size();
     }
 
+    public void setCarritoCompra(Producto producto) {
+        this.carritoCompra.add(producto);
+    }
+
     public void calcular_TotalPrecio(){
 
         for (Producto p:carritoCompra) {

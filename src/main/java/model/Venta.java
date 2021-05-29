@@ -23,11 +23,9 @@ public class Venta {
     public void setCarritoCompra(ArrayList<Producto> carritoCompra) {
         this.carritoCompra = carritoCompra;
     }
-
     public int getNumeroProductos() {
         return carritoCompra.size();
     }
-
     private void  llenarCarritoCompra(Producto producto){
         carritoCompra.add(producto);
     }

@@ -1,6 +1,7 @@
 package control;
 
 import model.Cliente;
+import model.Producto;
 
 public class ControlUsuario {
 
@@ -14,7 +15,5 @@ public class ControlUsuario {
     public void guardar_Clientes(){
 
     }
-
-
 
 }
