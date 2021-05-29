@@ -115,19 +115,49 @@ public class PantallaTienda {
                                         switch (des) {
 
                                             case 1:
+                                                System.out.println(" ");
+                                                System.out.println("Productos de la Sucursal");
+                                                System.out.println(" ");
+                                                System.out.println("---------------------------------------------------------------");
                                                 for(Producto producto : controlTienda.getTienda().getSucursales().get(contandor-1).getInventario()){
                                                     if(producto.getId()==controlTienda.getTienda().getSucursales().get(contandor-1).getIdSucursal()){
 
-                                                       System.out.println(producto.getCantidad());
-                                                       System.out.println(producto.getId());
-                                                       System.out.println(producto.getIdSucursal());
+                                                        System.out.println("Disponibilidad: "+ producto.isDisponibilidad());
+                                                        System.out.println("Nombre Producto: "+ producto.getNombre());
+                                                        System.out.println("Numeros de Producto: "+ producto.getCantidad());
+                                                        System.out.println("Precio $: "+ producto.getPrecio());
+                                                        System.out.println("ID Producto: "+ producto.getId());
+                                                        System.out.println("ID Sucursal pertenece: " + producto.getIdSucursal());
+                                                        System.out.println("Tipo de Producto: "+ producto.getTipo());
+                                                        System.out.println("Descripcion: "+ producto.getDescripcion());
+                                                        System.out.println("Resumen: "+ producto.getResumen());
+                                                        System.out.println("Descripcion: "+ producto.getDescripcion());
+                                                        System.out.println("Get Info: "+ producto.getInfo());
+                                                        System.out.println("---------------------------------------------------------------");
+                                                        System.out.println(" ");
+
                                                     }
+
                                                 }
+                                                System.out.println("---------------------------------------------------------------");
+                                                System.out.println(" ");
                                                 break;
                                             case 2:
 
                                                 break;
-                                            case 3:
+                                            case 3:// Eliminar Producto
+                                                entrada.reset();
+                                                System.out.println(" ");
+                                                System.out.println("Eliminar Producto de la Sucursal");
+                                                System.out.println(" ");
+                                                System.out.println("---------------------------------------------------------------");
+                                                System.out.println("Digita el ID del Producto que desa Eliminar ");
+                                                int idProductoEliminar = entrada.nextInt();
+                                                entrada.reset();
+
+                                                controlTienda.eliminarProductoInventario(idProductoEliminar);
+                                                System.out.println(" ");
+
                                                 break;
                                             case 4:
                                                 elector3=2;

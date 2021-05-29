@@ -4,6 +4,7 @@ public abstract class Producto {
 
     private double id;
     private double idSucursal;
+    private boolean disponibilidad;
     private int cantidad;
     private String tipo;
     private String nombre;
@@ -23,6 +24,15 @@ public abstract class Producto {
         this.precio = precio;
         this.descripcion = descripcion;
         this.resumen = resumen;
+        this.disponibilidad = true;
+    }
+
+    public boolean isDisponibilidad() {
+        return disponibilidad;
+    }
+
+    public void setDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
 
     public double getId() {
