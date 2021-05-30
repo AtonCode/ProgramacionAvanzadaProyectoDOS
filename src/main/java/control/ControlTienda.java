@@ -11,32 +11,26 @@ public class ControlTienda {
 
     private Tienda tienda;
     private int numSucursales;
-
     private ControlInventario controlInventario;
-    private ControlUsuario controlUsuario;
 
     public ControlTienda() {
         this.tienda = new Tienda("GigaByte", "WWW");
-
         this.controlInventario = new ControlInventario();
-        this.controlUsuario = new ControlUsuario();
-
         this.controlInventario.cargar_inventario();
-        this.controlUsuario.cargar_Clientes();
+
     }
 
     public Tienda getTienda() {
         return tienda;
     }
+
     public int getNumSucursales() {
         return numSucursales;
     }
     public ControlInventario getControlInventario() {
         return controlInventario;
     }
-    public ControlUsuario getControlUsuario() {
-        return controlUsuario;
-    }
+
 
     //Cliente
     public void crearCliente(double cedula, String nombre){
