@@ -551,7 +551,6 @@ public class PantallaTienda {
                                                                 System.out.println("Precio: "+tempPr.getPrecio());
                                                                 System.out.println("----------------------------------------------");
 
-
                                                             }
                                                         }
                                                         break;

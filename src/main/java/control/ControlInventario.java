@@ -111,7 +111,7 @@ public class ControlInventario {
 
             for (Producto p: this.tienda.getInventarioGeneral())
                 if(p.getTipo()=="0"){
-                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),p.imprimirInfo());
+                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),((Componente)p).getDispsitivoPertence(),p.imprimirInfo());
                 }
 
 
