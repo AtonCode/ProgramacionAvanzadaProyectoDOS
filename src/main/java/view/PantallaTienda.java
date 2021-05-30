@@ -191,108 +191,118 @@ public class PantallaTienda {
                 case 2:
                     int elec;
                     elec = OpcionesCliente();
+                    Scanner dato = new Scanner(System.in);
                     switch (elec) {
                         case 1:
                             int elec3=1;
-                            while(elec3==1) {
-
-                                Scanner datos = new Scanner(System.in);
-                                Scanner dato = new Scanner(System.in);
+                            while(elec3==1){
                                 System.out.println("ingrese los datos de la persona que desa crear: ");
                                 System.out.println("                                    ");
                                 System.out.println("------------------------------------------------");
                                 System.out.println("ingrese la cedula: ");
                                 double cedula;
-
                                 cedula = dato.nextDouble();
+                                dato.reset();
 
                                 System.out.println("ingrese el nombre del cliente: ");
                                 String nombre;
-
-                                nombre = datos.nextLine();
+                                dato.reset();
+                                nombre = dato.nextLine();
+                                dato.reset();
 
                                 controlTienda.crearCliente(cedula, nombre);
 
                                 System.out.println("         ");
-                                System.out.println("desea serguir ingresar cliente? ");
+                                System.out.println("desea serguir creando cliente? ");
                                 System.out.println(" ");
                                 System.out.println("1) si ");
                                 System.out.println("2) no ");
                                 elec3 = dato.nextInt();
+                                dato.reset();
+
                             }
                             break;
 
                         case 2:
                             int elec4=1;
                             while (elec4==1) {
-                                Scanner dat = new Scanner(System.in);
+
                                 System.out.println("ingrese los datos de la persona que desa eliminar: ");
                                 System.out.println("                                    ");
                                 System.out.println("------------------------------------------------");
                                 System.out.println("ingrese la cedula: ");
                                 double c;
-                                c = dat.nextDouble();
+                                c = dato.nextDouble();
+                                dato.reset();
+                                controlTienda.eliminarCliente(c);
+                                System.out.print("desea eliminar otro cliente? ");
+                                System.out.print("1). Si");
+                                System.out.print("2). No");
+                                elec4=dato.nextInt();
+                                dato.reset();
 
-                                System.out.println("ingrese el nombre del cliente: ");
-                                String n;
-
-                                n = dat.nextLine();
-
-                                controlTienda.eliminarCliente(c, n);
                             }
                             break;
 
                         case 3:
+                            int elec5=1;
+                            while(elec5==1) {
+                                System.out.println("ingrese los datos de la persona que desea buscar su historial: ");
+                                System.out.println("                                    ");
+                                System.out.println("------------------------------------------------");
+                                System.out.println("ingrese la cedula: ");
+                                double cedula;
+                                cedula = dato.nextDouble();
+                                dato.reset();
 
-                            Scanner cliente = new Scanner(System.in);
-                            System.out.println("ingrese los datos de la persona que desea buscar su historial: ");
-                            System.out.println("                                    ");
-                            System.out.println("------------------------------------------------");
-                            System.out.println("ingrese la cedula: ");
-                            double cedula;
-                            cedula= cliente.nextDouble();
-
-
-                            System.out.println(controlTienda.buscarCliente(cedula).getHistorialCompras());
-
-
+                                System.out.println(controlTienda.buscarCliente(cedula).getHistorialCompras());
+                                System.out.print("desea buscar otro cliente? ");
+                                System.out.print("1). Si");
+                                System.out.print("2). No");
+                                elec5 = dato.nextInt();
+                                dato.reset();
+                            }
                             break;
                         case 4:
-                            int elec5=1;
-                            while(elec5==1){
-                                Scanner cedulatemp=new Scanner(System.in);
+                            int elec6=1;
+                            while(elec6==1){
+
                                 System.out.println("Ingrese la cedula del cliente al cual quiere verle el historial");
                                 double cedulat;
-                                cedulat=cedulatemp.nextDouble();
+                                cedulat=dato.nextDouble();
+                                dato.reset();
 
                                 System.out.println("Nombre: "+controlTienda.buscarCliente(cedulat).getNombre());
                                 System.out.println("Cedula: "+controlTienda.buscarCliente(cedulat).getCedula());
                                 int cont=0;
+
                                 for(Factura factura:controlTienda.buscarCliente(cedulat).getHistorialCompras()){
                                     cont++;
                                     System.out.println("Factura numero: "+cont);
                                     factura.imprimir();
                                 }
-                                Scanner op=new Scanner(System.in);
+
                                 System.out.println("ingrese la opcion que desea realizar: ");
                                 System.out.println("1).Buscar otro cliente ");
                                 System.out.println("2).salir ");
-                                elec5=op.nextInt();
+                                elec6=dato.nextInt();
+                                dato.reset();
                             }
                             break;
 
                         case 5:
-                            int elec6=0;
-                            while(elec6==0) {
+                            int elec7=0;
+                            while(elec7==0) {
                                 System.out.println("Mostrar todos los clientes");
                                 System.out.println("----------------------------------------------");
                                 for (Cliente client : controlTienda.getTienda().getClientesGeneral()) {
                                     System.out.println("Nombre: " + client.getNombre() + '\t' + " Cedula: " + client.getCedula());
                                 }
-                                Scanner v =new Scanner(System.in);
+
                                 System.out.println("Elija la opcion que desea");
                                 System.out.println("1).Salir");
-                                elec6=v.nextInt();
+                                elec7=dato.nextInt();
+                                dato.reset();
                                 System.out.println("                                    ");
                                 System.out.println("----------------------------------------------");
                             }
