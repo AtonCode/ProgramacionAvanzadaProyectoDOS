@@ -4,6 +4,8 @@ package view;
 import control.ControlTienda;
 import model.*;
 
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PantallaTienda {
@@ -541,8 +543,8 @@ public class PantallaTienda {
                                                 int elec8=1;
                                                 while(elec8==1){
                                                 des=menuComprar(temp);
-
-                                                Venta venta1=new Venta();
+                                                Venta venta=new Venta();
+                                                    ArrayList<Producto> carrito=new ArrayList<Producto>();
                                                 switch (des){
                                                     case 1:
                                                         for(Producto tempPr: controlTienda.getTienda().getInventarioGeneral()){
@@ -579,7 +581,9 @@ public class PantallaTienda {
                                                                     desi=entrada.nextInt();
 
                                                                     if(desi==1){
-                                                                        venta1.getCarritoCompra().add(productos);
+
+                                                                        carrito.add(productos);
+                                                                        System.out.println("entro" +carrito.size());
                                                                         productos.setCantidad(productos.getCantidad()-1);
 
                                                                         System.out.println("desea agrgar otro prodcuto?");
@@ -596,20 +600,24 @@ public class PantallaTienda {
                                                                     break;
                                                                 }
                                                             }
+                                                            venta.setCarritoCompra(carrito);
                                                         }
                                                         break;
                                                     case 3:
+
                                                         double cont=0;
                                                         System.out.println("Carrito de compras del usuario: "+ temp.getNombre());
 
-                                                        for(Producto product: venta1.getCarritoCompra()){
+                                                        for(Producto product: venta.getCarritoCompra()){
+
                                                             System.out.println("normbre del producto "+product.getNombre());
                                                             System.out.println("ID del producto "+product.getId());
                                                             cont=(product.getPrecio())+cont;
+
                                                         }
                                                         System.out.println("----------------------------------");
                                                         System.out.println("valor aprox: "+ cont);
-                                                        System.out.println("cantidad de productos: "+ venta1.getNumeroProductos());
+                                                        System.out.println("cantidad de productos: "+ venta.getNumeroProductos());
                                                         break;
                                                     case 4:
 

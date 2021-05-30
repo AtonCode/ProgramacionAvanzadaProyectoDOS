@@ -5,9 +5,13 @@ import java.util.ArrayList;
 public class Venta {
 
     private Factura factura;
-    private ArrayList<Producto> carritoCompra = new ArrayList<Producto>();
+    private ArrayList<Producto> Compras = new ArrayList<Producto>();
 
-    public Venta(){
+    public Venta() {
+    }
+
+    public Venta(ArrayList<Producto> compras) {
+        Compras = compras;
     }
 
     public Factura getFactura() {
@@ -17,18 +21,17 @@ public class Venta {
         this.factura = factura;
     }
     public ArrayList<Producto> getCarritoCompra() {
-        return carritoCompra;
+        return Compras;
     }
     public void setCarritoCompra(ArrayList<Producto> carritoCompra) {
-        this.carritoCompra = carritoCompra;
+        this.Compras = carritoCompra;
     }
     public int getNumeroProductos() {
-        return carritoCompra.size();
+        return Compras.size();
     }
-    private void  llenarCarritoCompra(Producto producto){
-        carritoCompra.add(producto);
+    public void  llenarCarritoCompra(Producto producto){ Compras.add(producto);
     }
-    private void generarFactura(){
-        this.factura = new Factura(this.carritoCompra);
+    public void generarFactura(){
+        this.factura = new Factura(this.Compras);
     }
 }
