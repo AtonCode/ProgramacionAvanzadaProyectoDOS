@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="TiendaGigabyte" />
+        <module name="ProgramacionAvanzadaProyectoDOS-main" />
         <module name="ProgramacionAvanzadaProyectoDOS" />
       </profile>
     </annotationProcessing>
