@@ -46,6 +46,10 @@ public class Componente extends Producto{
                 " descripcion_fisica= " + descripcion_fisica + '\t' +
                 " informacinAdicional= " + informacinAdicional + '\t');
     }
+    @Override
+    public String imprimirInfo(){
+        return this.dispsitivoPertence+","+this.descripcion_fisica+","+this.informacinAdicional;
+    }
 }
 
 
