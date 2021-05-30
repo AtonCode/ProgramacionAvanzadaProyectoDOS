@@ -63,9 +63,6 @@ public class ControlTienda {
         return cliente;
     }
 
-    //public Factura comprar(){
-
-    //}
 
     //Sucursal
     public void crearSucursal(int id, String nombre, String ubicacion){
@@ -90,7 +87,7 @@ public class ControlTienda {
         return null;
     }
 
-    public void CrearInventarioGeneral() {// esta funcion coge el inventario de las sucursales y l concatena en el inventario general
+    public void crearInventarioGeneral() {// esta funcion recolecta el inventario de las sucursales y l concatena en el inventario general
 
         for(int i=0; i<numSucursales;i++) {
             ArrayList<Sucursal> tempsucursales = new ArrayList<Sucursal>();// array temporal en el cual almaceno las sucusales
@@ -104,14 +101,18 @@ public class ControlTienda {
     }
 
     //Inventario
-    public void consultaDisponibilidadProductoInventario(int id){
+    public boolean consultaDisponibilidadProductoInventario(int id){
+        boolean disponibilidad=false;
         for (Producto p: this.tienda.getInventarioGeneral()) {
             if(p.getId() == id){
-                if(p.getCantidad()!=0) {
+                if(p.getCantidad()>0) {
                     System.out.println("Disponible");
-                }
-            }else System.out.println("No Disponible");
+                    disponibilidad=true;
+                    break;
+                }else System.out.println("No Disponible");
+            }
         }
+        return disponibilidad;
     }
     public void addProductoInventario(Producto producto){
         this.tienda.getInventarioGeneral().add(producto);
@@ -121,14 +122,18 @@ public class ControlTienda {
         for (Producto p: this.tienda.getInventarioGeneral()) {
             if((p.getId() == id)){
                 this.tienda.getInventarioGeneral().remove(p);
-            }else System.out.println("No Existe");
+                System.out.println("Producto ID: "+id+" ELIMINADO");
+                break;
+            }
         }
     }
     public void editarCantidadProductoInventario(int id, int nuevaCantidad){
         for (Producto p: this.tienda.getInventarioGeneral()) {
             if((p.getId() == id)){
                 p.setCantidad(nuevaCantidad);
-            }else System.out.println("No Existe");
+                System.out.println("Producto ID: "+id+" Modificado");
+                break;
+            }
         }
     }
 }
