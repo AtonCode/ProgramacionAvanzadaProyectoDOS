@@ -8,7 +8,6 @@ public class Venta {
     private ArrayList<Producto> carritoCompra = new ArrayList<Producto>();
 
     public Venta(){
-
     }
 
     public Factura getFactura() {

@@ -539,6 +539,7 @@ public class PantallaTienda {
                                                 int elec8=1;
                                                 while(elec8==1){
                                                 des=menuComprar(temp);
+                                                Venta venta=new Venta();
                                                 switch (des){
                                                     case 1:
                                                         for(Producto tempPr: controlTienda.getTienda().getInventarioGeneral()){
@@ -550,11 +551,49 @@ public class PantallaTienda {
                                                                 System.out.println("Tipo: "+tempPr.getTipo());
                                                                 System.out.println("Precio: "+tempPr.getPrecio());
                                                                 System.out.println("----------------------------------------------");
-
                                                             }
                                                         }
                                                         break;
                                                     case 2:
+                                                        int elect4=1;
+                                                        while(elect4==1){
+
+                                                            double id;
+                                                            System.out.println("ingrese el ID del producto que desas comprar: ");
+                                                            entrada.reset();
+                                                            id=entrada.nextDouble();
+
+                                                            for(Producto productos: tempSuc.getInventario()){
+                                                                if(productos.getId()==id){
+                                                                    System.out.println("nombre del producto: "+productos.getNombre());
+                                                                    System.out.println("precio: "+productos.getPrecio());
+                                                                    System.out.println("----------------------------------------------");
+                                                                    System.out.println("Seguro desea agregar este producto");
+
+                                                                    int desi=0;
+                                                                    System.out.println("1). si");
+                                                                    System.out.println("2). No");
+                                                                    entrada.reset();
+                                                                    desi=entrada.nextInt();
+
+                                                                    if(desi==1){
+                                                                        venta.getCarritoCompra().add(productos);
+
+                                                                        System.out.println("desea agrgar otro prodcuto?");
+                                                                        System.out.println("1). si");
+                                                                        System.out.println("2). No");
+                                                                        entrada.reset();
+                                                                        elect4=entrada.nextInt();
+                                                                        break;
+
+                                                                    }else{ break;}
+                                                                }
+                                                                else{
+                                                                    System.out.println("Id no encntrado");
+                                                                    break;
+                                                                }
+                                                            }
+                                                        }
                                                         break;
                                                     case 3:
                                                         break;
