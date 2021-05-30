@@ -561,15 +561,15 @@ public class PantallaTienda {
                                                             double id;
                                                             System.out.println("ingrese el ID del producto que desas comprar: ");
                                                             entrada.reset();
+
                                                             id=entrada.nextDouble();
 
-                                                            for(Producto productos: tempSuc.getInventario()){
+                                                            for(Producto productos: controlTienda.mostrarSucursal().getInventario()){
                                                                 if(productos.getId()==id){
                                                                     System.out.println("nombre del producto: "+productos.getNombre());
                                                                     System.out.println("precio: "+productos.getPrecio());
                                                                     System.out.println("----------------------------------------------");
                                                                     System.out.println("Seguro desea agregar este producto");
-
                                                                     int desi=0;
                                                                     System.out.println("1). si");
                                                                     System.out.println("2). No");
