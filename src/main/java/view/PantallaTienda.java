@@ -583,7 +583,7 @@ public class PantallaTienda {
                         entrada.reset();
                         int opt = opcionesInventario();
                         if (opt == 1) {
-                            //ControlTienda.ControlInventario.GuardarInventario();
+                            controlTienda.guardarInventarioGeneral();
                             System.out.println("Inventario Guardado");
                             System.out.println(" ");
                         }

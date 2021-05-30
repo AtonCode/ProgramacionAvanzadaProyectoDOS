@@ -12,11 +12,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 
-import java.io.FileWriter;
-import java.io.IOException;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
 
 public class ControlInventario {
 
@@ -104,19 +100,15 @@ public class ControlInventario {
     public void guardarInventarioComponente(){
         String[] ComponenteHEADERS = {"id","idSucursal","cantidad","tipo","nombre","precio","descripcion","resumen","dispsitivoPertence","descripcion_fisica", "informacinAdicional"};
 
-
         try (
                 FileWriter out = new FileWriter("src/main/java/recursos/inventarioGeneralComponente.csv");
                 CSVPrinter printerComponente = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(ComponenteHEADERS))) {
 
-            for (Producto p: this.tienda.getInventarioGeneral())
-                if(p.getTipo()=="0"){
-                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),((Componente)p).getDispsitivoPertence(),p.imprimirInfo());
+            for (Producto p: this.tienda.getInventarioGeneral()){
+                if(p.getTipo()=="C"){
+                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),((Componente)p).getDispsitivoPertence(),((Componente)p).getDescripcion_fisica(),((Componente)p).getInformacinAdicional());
                 }
-
-
-
-
+            }
 
         }catch(IOException ioe) {
             System.err.println("Error al procesar archivo: "+ioe.getMessage());
@@ -130,15 +122,13 @@ public class ControlInventario {
 
         try (
                 FileWriter out = new FileWriter("src/main/java/recursos/inventarioGeneralDispositivo.csv");
-                CSVPrinter printerComponente = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(DispositivoHEADERS))) {
+                CSVPrinter printerDispositivo = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(DispositivoHEADERS))) {
 
-            for (Producto p: this.tienda.getInventarioGeneral())
-                if(p.getTipo()=="1"){
-                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen());
-                }
+            for (Producto p: this.tienda.getInventarioGeneral()){
 
+                printerDispositivo.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),((Dispositivo)p).getPantalla(),((Dispositivo)p).getAlmacenamient(),((Dispositivo)p).getProcesamiento(),((Dispositivo)p).getTecnicas(),((Dispositivo)p).getDescripcion_fisica(),((Dispositivo)p).getConectividad(),((Dispositivo)p).getInformacinAdicional());
 
-
+            }
 
 
         }catch(IOException ioe) {

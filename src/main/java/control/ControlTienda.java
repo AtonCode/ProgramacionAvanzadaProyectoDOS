@@ -133,4 +133,10 @@ public class ControlTienda {
             }
         }
     }
+
+    public void guardarInventarioGeneral(){
+        this.controlInventario.guardarInventarioComponente();
+        this.controlInventario.guardarInventarioDispositivo();
+
+    }
 }
