@@ -1,5 +1,6 @@
 package model;
 // no se si deba eliminarla
+
 public class Especificacion {
     private boolean pantalla;
     private boolean almacenamient;

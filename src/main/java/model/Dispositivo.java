@@ -8,12 +8,9 @@ public class Dispositivo extends Producto {
     private String descripcion_fisica;
     private String conectividad;
     private String informacinAdicional;
-    private String descripcion;
 
-    public Dispositivo() {
-    }
 
-    public Dispositivo(double id, double idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen, String pantalla, String almacenamient, String procesamiento, String tecnicas, String descripcion_fisica, String conectividad, String informacinAdicional, String descripcion1) {
+    public Dispositivo(double id, double idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen, String pantalla, String almacenamient, String procesamiento, String tecnicas, String descripcion_fisica, String conectividad, String informacinAdicional) {
         super(id, idSucursal, cantidad, tipo, nombre, precio, descripcion, resumen);
         this.pantalla = pantalla;
         this.almacenamient = almacenamient;
@@ -22,7 +19,6 @@ public class Dispositivo extends Producto {
         this.descripcion_fisica = descripcion_fisica;
         this.conectividad = conectividad;
         this.informacinAdicional = informacinAdicional;
-        this.descripcion = descripcion1;
     }
 
     public String getPantalla() {
@@ -82,16 +78,6 @@ public class Dispositivo extends Producto {
     }
 
     @Override
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    @Override
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    @Override
     public String getInfo() {
         return super.toString() + ("Dispositivo" + '\t' +
                 "pantalla= " + pantalla + '\t' +
@@ -100,9 +86,6 @@ public class Dispositivo extends Producto {
                 " tecnicas= " + tecnicas + '\t' +
                 " descripcion_fisica= " + descripcion_fisica + '\t' +
                 " conectividad= " + conectividad + '\t' +
-                " informacinAdicional= " + informacinAdicional + '\t' +
-                " descripcion= " + descripcion + '\t');
-
-
+                " informacinAdicional= " + informacinAdicional + '\t' );
     }
 }

@@ -2,10 +2,7 @@
 package view;
 
 import control.ControlTienda;
-import model.Cliente;
-import model.Factura;
-import model.Producto;
-import model.Sucursal;
+import model.*;
 
 import java.util.Scanner;
 
@@ -119,22 +116,22 @@ public class PantallaTienda {
 
                             int contandor=0;
                             for(Sucursal sucursal: controlTienda.getTienda().getSucursales()){
-                                contandor++;
+
                                 if(sucursal.getIdSucursal() == idSucursal){
 
                                     int elector3=1;
                                     while(elector3==1) {
                                         int des;
-                                        des=menuSucursal(controlTienda.getTienda().getSucursales().get(contandor-1));
-                                        switch (des) {
+                                        des=menuSucursal(controlTienda.getTienda().getSucursales().get(controlTienda.getTienda().getSucursales().indexOf(sucursal)));
 
+                                        switch (des) {
                                             case 1:
                                                 System.out.println(" ");
-                                                System.out.println("Productos de la Sucursal: "+controlTienda.getTienda().getSucursales().get(contandor-1).getNombre());
+                                                System.out.println("Productos de la Sucursal: "+controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getNombre());
                                                 System.out.println(" ");
                                                 System.out.println("---------------------------------------------------------------");
-                                                for(Producto producto : controlTienda.getTienda().getSucursales().get(contandor-1).getInventario()){
-                                                    if(producto.isDisponibilidad()==true){
+                                                for(Producto producto : controlTienda.getTienda().getInventarioGeneral()){
+                                                    if((producto.isDisponibilidad()==true) && (producto.getIdSucursal()==controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getIdSucursal())){
                                                         
                                                         System.out.println("Nombre Producto: "+ producto.getNombre());
                                                         System.out.println("Numeros de Producto: "+ producto.getCantidad());
@@ -154,27 +151,185 @@ public class PantallaTienda {
                                                 }
                                                 System.out.println("---------------------------------------------------------------");
                                                 System.out.println(" ");
+
                                                 break;
                                             case 2:// Añadir Producto
-                                                entrada.reset();
+                                                int elec4=1;
+                                                while(elec4==1) {
+                                                    entrada.reset();
+                                                    System.out.println("-------------------------------------");
 
+                                                    System.out.println("Ingrese id del producto: ");
+                                                    double idPrducto;
+                                                    idPrducto=entrada.nextDouble();
+                                                    entrada.reset();
 
+                                                    double idSucur=idSucursal;
+
+                                                    //estado true
+                                                    System.out.println("Ingrese la cantidad: ");
+                                                    int cantidad;
+                                                    cantidad=entrada.nextInt();
+                                                    entrada.reset();
+
+                                                    System.out.println("Ingrese el tipo ");
+                                                    int tipo=0;
+                                                    System.out.println("1). Componente");
+                                                    System.out.println("2). Dispositivo");
+                                                    if(tipo==1){
+
+                                                        System.out.println("Ingrese el nombre");
+                                                        String nombre;
+                                                        nombre=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese Precio");
+                                                        int precio;
+                                                        precio=entrada.nextInt();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese descripcion");
+                                                        String descripcion;
+                                                        descripcion=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese el resumen del componente ");
+                                                        String resumen;
+                                                        resumen=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese al dispositivo que pertenece");
+                                                        String dispositivo;
+                                                        dispositivo=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese Descripcion fisica");
+                                                        String descripcionFisica;
+                                                        descripcionFisica=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese Descrpcion adicional ");
+                                                        String descripcionAdicional;
+                                                        descripcionAdicional=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        Producto temp= new Componente(idPrducto, idSucursal,cantidad,"componente",nombre,precio,descripcion,resumen,dispositivo,descripcionFisica,descripcionAdicional);
+                                                        controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getInventario().add(temp);
+                                                        controlTienda.addProductoInventario(temp);
+
+                                                        System.out.println("   ");
+                                                        System.out.println("---------------------------------");
+                                                        System.out.println("desea ingresar otro producto?");
+                                                        System.out.println("1).Si");
+                                                        System.out.println("2).No");
+                                                        elec4=entrada.nextInt();
+                                                        System.out.println("---------------------------------");
+                                                        System.out.println("   ");
+
+                                                    }if(tipo==2){
+
+                                                        System.out.println("Ingrese el nombre");
+                                                        String nombre;
+                                                        nombre=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese Precio");
+                                                        int precio;
+                                                        precio=entrada.nextInt();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese descripcion");
+                                                        String descripcion;
+                                                        descripcion=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese el resumen del dispositivo ");
+                                                        String resumen;
+                                                        resumen=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese el tipo de pantalla");
+                                                        String tipoPantalla;
+                                                        tipoPantalla=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese almacenamiento");
+                                                        String almacenamiento;
+                                                        almacenamiento=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese su procesamiento");
+                                                        String procesamiento;
+                                                        procesamiento=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese su tecnica");
+                                                        String tecnica;
+                                                        tecnica=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese su descripcion fisica");
+                                                        String descripcionFisica;
+                                                        descripcionFisica=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese su conectividad");
+                                                        String conectividad;
+                                                        conectividad=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        System.out.println("Ingrese su infrmacion adicional");
+                                                        String informacionAdicional;
+                                                        informacionAdicional=entrada.nextLine();
+                                                        entrada.reset();
+
+                                                        Producto temp= new Dispositivo(idPrducto, idSucursal,cantidad,"Dispositivo",nombre,precio,descripcion,resumen,tipoPantalla,almacenamiento,procesamiento,tecnica,descripcionFisica,conectividad,informacionAdicional);
+                                                        controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getInventario().add(temp);
+                                                        controlTienda.addProductoInventario(temp);
+
+                                                        System.out.println("   ");
+                                                        System.out.println("---------------------------------");
+                                                        System.out.println("desea ingresar otro producto?");
+                                                        System.out.println("1).Si");
+                                                        System.out.println("2).No");
+                                                        elec4=entrada.nextInt();
+                                                        System.out.println("---------------------------------");
+                                                        System.out.println("   ");
+                                                    }
+
+                                                }
                                                 break;
                                             case 3:// Eliminar Producto
-                                                entrada.reset();
-                                                System.out.println(" ");
-                                                System.out.println("---------------------------------------------------------------");
-                                                System.out.println("Eliminar Producto de la Sucursal"+controlTienda.getTienda().getSucursales().get(contandor-1).getUbicacion());
-                                                System.out.println(" ");
-                                                System.out.println("---------------------------------------------------------------");
-                                                System.out.println("Digita el ID del Producto que desa Eliminar: ");
-                                                entrada.reset();
-                                                int idProductoEliminar = entrada.nextInt();
-                                                entrada.reset();
+                                                int elec5=1;
+                                                while (elec5==1) {
+                                                    entrada.reset();
+                                                    System.out.println(" ");
+                                                    System.out.println("---------------------------------------------------------------");
+                                                    System.out.println("Eliminar Producto de la Sucursal" + controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getUbicacion());
+                                                    System.out.println(" ");
+                                                    System.out.println("---------------------------------------------------------------");
+                                                    System.out.println("Digita el ID del Producto que desa Eliminar: ");
+                                                    entrada.reset();
+                                                    int idProductoEliminar = entrada.nextInt();
+                                                    entrada.reset();
 
-                                                controlTienda.eliminarProductoInventario(idProductoEliminar);
-                                                System.out.println(" ");
-
+                                                    for(Producto producto : controlTienda.getTienda().getInventarioGeneral()){
+                                                        if (producto.getIdSucursal()==controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getIdSucursal()){
+                                                            controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getInventario().remove(producto);
+                                                            controlTienda.eliminarProductoInventario(idProductoEliminar);
+                                                            System.out.println(" ");
+                                                        }
+                                                    }
+                                                    System.out.println("   ");
+                                                    System.out.println("---------------------------------");
+                                                    System.out.println("desea eliminar otro producto?");
+                                                    System.out.println("1).Si");
+                                                    System.out.println("2).No");
+                                                    elec5=entrada.nextInt();
+                                                    System.out.println("---------------------------------");
+                                                    System.out.println("   ");
+                                                    System.out.println(" ");
+                                                }
                                                 break;
                                             case 4:
                                                 entrada.reset();
