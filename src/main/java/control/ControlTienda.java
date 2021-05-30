@@ -109,7 +109,7 @@ public class ControlTienda {
         }
         return disponibilidad;
     }
-    public void addProductoInventario(Producto producto){
+    public void addProductoInventario(Producto producto){// que hacemos despues de haberle ingresado a la sucursal
         this.tienda.getInventarioGeneral().add(producto);
     }
 
@@ -122,6 +122,7 @@ public class ControlTienda {
             }
         }
     }
+
     public void editarCantidadProductoInventario(int id, int nuevaCantidad){
         for (Producto p: this.tienda.getInventarioGeneral()) {
             if((p.getId() == id)){

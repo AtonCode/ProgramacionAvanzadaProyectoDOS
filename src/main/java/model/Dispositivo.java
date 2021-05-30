@@ -9,10 +9,10 @@ public class Dispositivo extends Producto {
     private String conectividad;
     private String informacinAdicional;
 
-    public Dispositivo() {
-    }
+
 
     public Dispositivo(double id, int idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen, String pantalla, String almacenamiento, String procesamiento, String tecnicas, String descripcion_fisica, String conectividad, String informacinAdicional) {
+
         super(id, idSucursal, cantidad, tipo, nombre, precio, descripcion, resumen);
         this.pantalla = pantalla;
         this.almacenamiento = almacenamiento;
@@ -90,6 +90,7 @@ public class Dispositivo extends Producto {
     }
 
     @Override
+
     public String getInfo() {
         return super.toString() + ("Dispositivo" + '\t' +
                 "pantalla= " + pantalla + '\t' +
@@ -98,7 +99,9 @@ public class Dispositivo extends Producto {
                 " tecnicas= " + tecnicas + '\t' +
                 " descripcion_fisica= " + descripcion_fisica + '\t' +
                 " conectividad= " + conectividad + '\t' +
+
                 " informacinAdicional= " + informacinAdicional + '\t');
+
 
 
     }

@@ -6,8 +6,10 @@ public class Componente extends Producto{
     private String descripcion_fisica;
     private String informacinAdicional;
 
+
     public Componente(double id, int idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen, String dispsitivoPertence, String descripcion_fisica, String informacinAdicional) {
         super(id, idSucursal, cantidad, tipo, nombre, precio, descripcion, resumen);
+
         this.dispsitivoPertence = dispsitivoPertence;
         this.descripcion_fisica = descripcion_fisica;
         this.informacinAdicional = informacinAdicional;
