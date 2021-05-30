@@ -15,6 +15,7 @@ public class PantallaTienda {
 
         int opcion;
         ControlTienda controlTienda = new ControlTienda();
+        Scanner entrada = new Scanner(System.in);
 
         //Sucursales
         controlTienda.crearSucursal(1,"La 45", "Bogota D.C");
@@ -38,21 +39,23 @@ public class PantallaTienda {
                                  int count = 3;
                                  int opt = 1;
                                  while (opt == 1){
-                                     Scanner sc = new Scanner(System.in);
+
                                      System.out.println(" Ingrese los datos de la  nueva sucursal");
                                      System.out.println("                                    ");
                                      System.out.println("------------------------------------");
 
                                      System.out.println(" Ingrese nombre: ");
                                      String nombre;
-                                     nombre = sc.nextLine();
+                                     entrada.reset();
+                                     nombre = entrada.nextLine();
 
                                      System.out.println("                                    ");
                                      System.out.println("------------------------------------");
 
                                      System.out.println(" Ingrese la direccion: ");
                                      String direccion;
-                                     direccion = sc.nextLine();
+                                     entrada.reset();
+                                     direccion = entrada.nextLine();
                                      controlTienda.crearSucursal(count,nombre, direccion);
                                      count++;
 
@@ -60,14 +63,14 @@ public class PantallaTienda {
                                      System.out.println("Desea Crear Una mas ");
                                      System.out.println("1).si");
                                      System.out.println("2).no");
-                                     opt = sc.nextInt();
+                                     entrada.reset();
+                                     opt = entrada.nextInt();
                                      System.out.println("------------------------------------");
                                      System.out.println("------------------------------------");
                                  }
                             break;
                         case 2:
-                            Scanner op = new Scanner(System.in);
-                            op.reset();
+                            entrada.reset();
                             System.out.println(" ");
                             System.out.println("Sucursales Disponibles para Eliminar");
                             System.out.println("-------------------------------------------------------------------------------------------------");
@@ -83,8 +86,9 @@ public class PantallaTienda {
                                 System.out.println("------------------------------------");
                                 System.out.println("Ingrese ID Sucursal a Eliminar: ");
                                 int idEliminar;
-                                idEliminar = op.nextInt();
-                                op.reset();
+                                entrada.reset();
+                                idEliminar = entrada.nextInt();
+                                entrada.reset();
                                 System.out.println("------------------------------------");
                                 controlTienda.eliminarSucursal(idEliminar);
                                 System.out.println(" ");
@@ -92,12 +96,13 @@ public class PantallaTienda {
                                 System.out.println(" ");
                                 System.out.println("1).si ");
                                 System.out.println("2).no ");
-                                elec6 = op.nextInt();
+                                entrada.reset();
+                                elec6 = entrada.nextInt();
+                                entrada.reset();
                             }
                             break;
 
-                        case 3:
-                            Scanner entrada=new Scanner(System.in);
+                        case 3://Elegir sucursal
                             entrada.reset();
                             for (Sucursal sucursal : controlTienda.getTienda().getSucursales()) {
                                 System.out.println("ID Sucursal:" + sucursal.getIdSucursal());
@@ -152,6 +157,7 @@ public class PantallaTienda {
                                                 System.out.println(" ");
                                                 break;
                                             case 2:// Añadir Producto
+                                                entrada.reset();
 
 
                                                 break;
@@ -170,6 +176,7 @@ public class PantallaTienda {
 
                                                 break;
                                             case 4:
+                                                entrada.reset();
                                                 elector3=2;
                                                 break;
                                             default:
