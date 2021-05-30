@@ -6,7 +6,7 @@ public class Cliente{
 
     private double cedula;
     private String nombre;
-    private ArrayList<Factura> historialCompras;
+    private ArrayList<Factura> historialCompras;// se lleca cn factura
 
     public Cliente() {
     }

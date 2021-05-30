@@ -11,10 +11,13 @@ public class Factura {
     private int totalPrecio;
     private int cantdiadTotal;
     private Date fecha;
-    private ArrayList<Producto> carritoCompra;
+    private ArrayList<Producto> carrito;// recive de venta
+
+    public Factura() {
+    }
 
     public Factura(ArrayList<Producto> carritoCompra) {
-        this.carritoCompra = carritoCompra;
+        this.carrito = carritoCompra;
         this.fecha = new Date();
     }
 
@@ -23,11 +26,11 @@ public class Factura {
     }
 
     public ArrayList<Producto> getCarritoCompra() {
-        return carritoCompra;
+        return carrito;
     }
 
     public int getNumeroProductos() {
-        return this.carritoCompra.size();
+        return this.carrito.size();
     }
 
     public int getCantdiadTotal() {
@@ -39,12 +42,12 @@ public class Factura {
     }
 
     public void setCarritoCompra(Producto producto) {
-        this.carritoCompra.add(producto);
+        this.carrito.add(producto);
     }
 
     public void calcular_TotalPrecio() {
         int cont = 0;
-        for (Producto p : carritoCompra) {
+        for (Producto p : carrito) {
             this.totalPrecio += p.getPrecio();
             cont++;
         }
@@ -56,7 +59,7 @@ public class Factura {
         try (
              FileWriter fw = new FileWriter("factura.txt");
              BufferedWriter bw = new BufferedWriter(fw)) {
-            for (Producto p: this.carritoCompra) {
+            for (Producto p: this.carrito) {
                 bw.write("Fecha: "+this.fecha);
                 bw.write("ID: "+p.getId()+"\t"+" Nombre: "+ p.getNombre()+'\t'+" Precio $: "+p.getPrecio());
                 bw.newLine();
@@ -74,7 +77,7 @@ public class Factura {
     public void imprimir(){
         System.out.println("Fecha: "+this.fecha);
         System.out.println("--------------------------------------");
-        for(Producto producto: carritoCompra){
+        for(Producto producto: carrito){
             System.out.println("Nombre: "+producto.getNombre()+'\t'+producto.getPrecio());
         }
         System.out.println("--------------------------------------");
