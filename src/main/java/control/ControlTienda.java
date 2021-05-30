@@ -80,11 +80,11 @@ public class ControlTienda {
             if((sucursal.getIdSucursal() == idSucursalEliminar)){
                 this.tienda.eliminarSucursal(sucursal);
                 System.out.println("Sucursal ID: " + sucursal.getIdSucursal() + " ELIMINADA");
-
-            }else System.out.println("No Existe Sucursal ID: " + sucursal.getIdSucursal());
+                break;
+            }
         }
-        this.numSucursales = this.tienda.getNumSucursales();
     }
+
     public Sucursal mostrarSucursal(){
         for (Sucursal s:this.tienda.getSucursales()) {
             return s;
