@@ -43,10 +43,9 @@ public class ControlTienda {
         Cliente cliente = new Cliente(cedula,nombre);
         this.tienda.getClientesGeneral().add(cliente);
     }
-    public void eliminarCliente(double cedula, String nombre){
-
+    public void eliminarCliente(double cedula){
         for (Cliente c: this.tienda.getClientesGeneral()) {
-            if((c.getCedula()== cedula) && (c.getNombre() == nombre)){
+            if(c.getCedula()== cedula){
                 this.tienda.getClientesGeneral().remove(c);
                 break;
             }else System.out.println("No Existe");
