@@ -578,7 +578,7 @@ public class PantallaTienda {
         System.out.println("-----------------------------------------------");
         System.out.println("1) Opciones Sucursales ");
         System.out.println("2) Opciones Cliente ");
-        System.out.println("3) Guardar inventario ");
+        System.out.println("3) Opciones inventario ");
         System.out.println("4) Salir");
         System.out.println("Dijita el numero de la opcion que desee: ");
         eleccion = entrada.nextInt();
