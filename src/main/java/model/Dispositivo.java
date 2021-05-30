@@ -2,27 +2,25 @@ package model;
 
 public class Dispositivo extends Producto {
     private String pantalla;
-    private String almacenamient;
+    private String almacenamiento;
     private String procesamiento;
     private String tecnicas;
     private String descripcion_fisica;
     private String conectividad;
     private String informacinAdicional;
-    private String descripcion;
 
     public Dispositivo() {
     }
 
-    public Dispositivo(double id, double idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen, String pantalla, String almacenamient, String procesamiento, String tecnicas, String descripcion_fisica, String conectividad, String informacinAdicional, String descripcion1) {
+    public Dispositivo(double id, int idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen, String pantalla, String almacenamiento, String procesamiento, String tecnicas, String descripcion_fisica, String conectividad, String informacinAdicional) {
         super(id, idSucursal, cantidad, tipo, nombre, precio, descripcion, resumen);
         this.pantalla = pantalla;
-        this.almacenamient = almacenamient;
+        this.almacenamiento = almacenamiento;
         this.procesamiento = procesamiento;
         this.tecnicas = tecnicas;
         this.descripcion_fisica = descripcion_fisica;
         this.conectividad = conectividad;
         this.informacinAdicional = informacinAdicional;
-        this.descripcion = descripcion1;
     }
 
     public String getPantalla() {
@@ -34,11 +32,11 @@ public class Dispositivo extends Producto {
     }
 
     public String getAlmacenamient() {
-        return almacenamient;
+        return almacenamiento;
     }
 
-    public void setAlmacenamient(String almacenamient) {
-        this.almacenamient = almacenamient;
+    public void setAlmacenamient(String almacenamiento) {
+        this.almacenamiento = almacenamiento;
     }
 
     public String getProcesamiento() {
@@ -83,25 +81,24 @@ public class Dispositivo extends Producto {
 
     @Override
     public String getDescripcion() {
-        return descripcion;
+        return super.getDescripcion();
     }
 
     @Override
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        super.setDescripcion(descripcion);
     }
 
     @Override
     public String getInfo() {
         return super.toString() + ("Dispositivo" + '\t' +
                 "pantalla= " + pantalla + '\t' +
-                " almacenamient= " + almacenamient + '\t' +
+                " almacenamient= " + almacenamiento + '\t' +
                 " procesamiento= " + procesamiento + '\t' +
                 " tecnicas= " + tecnicas + '\t' +
                 " descripcion_fisica= " + descripcion_fisica + '\t' +
                 " conectividad= " + conectividad + '\t' +
-                " informacinAdicional= " + informacinAdicional + '\t' +
-                " descripcion= " + descripcion + '\t');
+                " informacinAdicional= " + informacinAdicional + '\t');
 
 
     }

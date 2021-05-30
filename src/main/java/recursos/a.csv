@@ -1,0 +1,3 @@
+id,idSucursal,cantidad,tipo,nombre,precio,descripcion,resumen,dispsitivoPertence,descripcion_fisica,informacinAdicional
+1,1,2,0,Pantalla LG HD,100,nanoLeds,Ultrawide,29:16 es su formato,Computador Mesa Custom,29'' con parlantes, Taza de refresco de 75Ghz
+2,2,2,0,GPU NVIDIA GTX 3080Ti,300,Unidad de procesamiento gráfico,null,Computador Mesa Custom,10 núcleos Turing,Requiere de una fuente de 600w

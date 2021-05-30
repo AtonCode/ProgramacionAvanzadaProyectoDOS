@@ -24,4 +24,8 @@ public class Sucursal extends Tienda {
     public ArrayList<Producto> getInventario() {
         return inventario;
     }
+
+    public void setProductoInventario(Producto producto) {
+        this.inventario.add(producto);
+    }
 }

@@ -3,7 +3,7 @@ package model;
 public abstract class Producto {
 
     private double id;
-    private double idSucursal;
+    private int idSucursal;
     private boolean disponibilidad;
     private int cantidad;
     private String tipo;
@@ -15,7 +15,7 @@ public abstract class Producto {
     public Producto() {
     }
 
-    public Producto(double id, double idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen) {
+    public Producto(double id, int idSucursal, int cantidad, String tipo, String nombre, double precio, String descripcion, String resumen) {
         this.id = id;
         this.idSucursal = idSucursal;
         this.cantidad = cantidad;
@@ -80,7 +80,7 @@ public abstract class Producto {
     public double getIdSucursal() {
         return idSucursal;
     }
-    public void setIdSucursal(double idSucursal) {
+    public void setIdSucursal(int idSucursal) {
         this.idSucursal = idSucursal;
     }
     public abstract String getInfo();
