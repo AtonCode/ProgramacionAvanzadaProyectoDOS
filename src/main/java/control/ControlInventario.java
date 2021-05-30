@@ -104,11 +104,18 @@ public class ControlInventario {
                 FileWriter out = new FileWriter("src/main/java/recursos/inventarioGeneralComponente.csv");
                 CSVPrinter printerComponente = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(ComponenteHEADERS))) {
 
+            System.out.println(" ");
+            System.out.println("Guardado Archivo Componente");
             for (Producto p: this.tienda.getInventarioGeneral()){
-                if(p.getTipo()=="C"){
-                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),((Componente)p).getDispsitivoPertence(),((Componente)p).getDescripcion_fisica(),((Componente)p).getInformacinAdicional());
-                }
+
+                if(p.getClass().getName()=="model.Componente"){
+
+                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),p.imprimirInfo());
+                    System.out.println("Componente Guardado");
+
+                }else {System.out.println("No es Componente");}
             }
+            System.out.println(" ");
 
         }catch(IOException ioe) {
             System.err.println("Error al procesar archivo: "+ioe.getMessage());
@@ -124,11 +131,16 @@ public class ControlInventario {
                 FileWriter out = new FileWriter("src/main/java/recursos/inventarioGeneralDispositivo.csv");
                 CSVPrinter printerDispositivo = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(DispositivoHEADERS))) {
 
+            System.out.println(" ");
+            System.out.println("Guardado Archivo Dispositivo");
             for (Producto p: this.tienda.getInventarioGeneral()){
 
-                printerDispositivo.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),((Dispositivo)p).getPantalla(),((Dispositivo)p).getAlmacenamient(),((Dispositivo)p).getProcesamiento(),((Dispositivo)p).getTecnicas(),((Dispositivo)p).getDescripcion_fisica(),((Dispositivo)p).getConectividad(),((Dispositivo)p).getInformacinAdicional());
-
+                if(p.getClass().getName()!="model.Componente") {
+                    printerDispositivo.printRecord(p.getId(), p.getIdSucursal(), p.getCantidad(), p.getTipo(), p.getNombre(), p.getPrecio(), p.getDescripcion(), p.getResumen(), p.imprimirInfo());
+                    System.out.println("Dispositivo Guardado");
+                }else {System.out.println("No es Dispositivo");}
             }
+            System.out.println(" ");
 
 
         }catch(IOException ioe) {

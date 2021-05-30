@@ -48,7 +48,7 @@ public class Componente extends Producto{
     }
     @Override
     public String imprimirInfo(){
-        return this.dispsitivoPertence+","+this.descripcion_fisica+","+this.informacinAdicional;
+        return (this.dispsitivoPertence+","+this.descripcion_fisica+","+this.informacinAdicional);
     }
 }
 

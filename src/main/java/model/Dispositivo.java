@@ -106,6 +106,6 @@ public class Dispositivo extends Producto {
 
     @Override
     public String imprimirInfo() {
-        return null;
+        return (this.pantalla+","+this.almacenamiento+","+this.procesamiento+","+this.tecnicas+","+this.descripcion_fisica+","+this.conectividad+","+this.informacinAdicional);
     }
 }
