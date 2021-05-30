@@ -76,9 +76,8 @@ public class ControlTienda {
     }
     public void eliminarSucursal(int idSucursalEliminar){
         for (Sucursal sucursal: this.tienda.getSucursales()){
-
-            if((sucursal.getIdSucursal() == idSucursalEliminar)){
-                this.tienda.eliminarSucursal(sucursal);
+            if(sucursal.getIdSucursal() == idSucursalEliminar){
+                this.tienda.getSucursales().remove(sucursal);
                 System.out.println("Sucursal ID: " + sucursal.getIdSucursal() + " ELIMINADA");
                 break;
             }

@@ -19,6 +19,7 @@ public class PantallaTienda {
         //Sucursales
         controlTienda.crearSucursal(1,"La 45", "Bogota D.C");
         controlTienda.crearSucursal(2,"La 100", "Villavicencio");
+        controlTienda.crearSucursal(4,"La 100", "Villavicencio");
         //Clientes
         controlTienda.crearCliente(1, "Aton");
         controlTienda.crearCliente(2, "Natalia");
@@ -67,7 +68,6 @@ public class PantallaTienda {
                         case 2:
                             Scanner op = new Scanner(System.in);
                             op.reset();
-
                             System.out.println(" ");
                             System.out.println("Sucursales Disponibles para Eliminar");
                             System.out.println("-------------------------------------------------------------------------------------------------");
@@ -78,16 +78,24 @@ public class PantallaTienda {
                             }
                             System.out.println(" ");
 
-                            System.out.println("------------------------------------");
-                            System.out.println("Ingrese ID Sucursal a Eliminar: ");
-                            int idSucursalEliminar;
-                            idSucursalEliminar = op.nextInt();
-                            op.reset();
-                            System.out.println("------------------------------------");
-                            controlTienda.eliminarSucursal(idSucursalEliminar);
-
-
+                            int elec6=1;
+                            while(elec6==1) {
+                                System.out.println("------------------------------------");
+                                System.out.println("Ingrese ID Sucursal a Eliminar: ");
+                                int idEliminar;
+                                idEliminar = op.nextInt();
+                                op.reset();
+                                System.out.println("------------------------------------");
+                                controlTienda.eliminarSucursal(idEliminar);
+                                System.out.println(" ");
+                                System.out.println("desea eliminar otra sucursal? ");
+                                System.out.println(" ");
+                                System.out.println("1).si ");
+                                System.out.println("2).no ");
+                                elec6 = op.nextInt();
+                            }
                             break;
+
                         case 3:
                             Scanner entrada=new Scanner(System.in);
                             entrada.reset();
@@ -96,6 +104,7 @@ public class PantallaTienda {
                                 System.out.println(sucursal.getNombre()+'\t'+sucursal.getUbicacion());
                                 System.out.println(" ");
                             }
+
                             System.out.println("-------------------------------------------------");
                             System.out.println(" ");
                             System.out.println("Digite el ID Sucursal: ");
