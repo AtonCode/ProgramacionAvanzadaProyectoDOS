@@ -17,7 +17,7 @@ public class ControlTienda {
         this.tienda = new Tienda("GigaByte", "WWW");
         this.controlInventario = new ControlInventario(this.tienda);
         this.controlInventario.cargar_inventarioProductosComponente("src/main/java/recursos/a.csv");
-        //this.controlInventario.cargar_inventarioProductosDispositivo("/Users/atoncode/Documents/GitHub/ProgramacionAvanzadaProyectoDOS/src/main/java/recursos/b.csv");
+        this.controlInventario.cargar_inventarioProductosDispositivo("src/main/java/recursos/b.csv");
 
     }
 

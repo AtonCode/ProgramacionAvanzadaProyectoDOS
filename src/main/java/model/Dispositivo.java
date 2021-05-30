@@ -102,7 +102,10 @@ public class Dispositivo extends Producto {
 
                 " informacinAdicional= " + informacinAdicional + '\t');
 
+    }
 
-
+    @Override
+    public String imprimirInfo() {
+        return null;
     }
 }

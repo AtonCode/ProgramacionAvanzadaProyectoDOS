@@ -84,7 +84,7 @@ public abstract class Producto {
         this.idSucursal = idSucursal;
     }
     public abstract String getInfo();
-
+    public abstract String imprimirInfo();
     @Override
     public String toString() {
         return "Producto" +'\t' +
@@ -97,4 +97,6 @@ public abstract class Producto {
                 " descripcion='" + descripcion + '\t' +
                 " resumen='" + resumen + '\t';
     }
+
+
 }

@@ -4,11 +4,19 @@ import model.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 
 public class ControlInventario {
 
@@ -62,7 +70,6 @@ public class ControlInventario {
             List<CSVRecord> filas=parser.getRecords();
             for (CSVRecord fila:filas) {
 
-
                 double id = Double.parseDouble(fila.get("id"));
                 int idSucursal = Integer.parseInt(fila.get("idSucursal"));
                 int cantidad =Integer.parseInt(fila.get("cantidad"));
@@ -80,13 +87,60 @@ public class ControlInventario {
                 String informacinAdicional= fila.get("informacinAdicional");
 
 
-                Dispositivo dispositivo = new Dispositivo(id,idSucursal,cantidad,tipo, nombre,precio,descripcion,resumen,pantalla,almacenamiento,procesamiento,tecnicas,descripcion_fisica,conectividad,informacinAdicional);
+                Dispositivo dispositivo = new Dispositivo(id,idSucursal,cantidad,tipo,nombre,precio,descripcion,resumen,pantalla,almacenamiento,procesamiento,tecnicas,descripcion_fisica,conectividad,informacinAdicional);
                 this.tienda.getInventarioGeneral().add(dispositivo);
 
 
             }
         }catch (FileNotFoundException e) {
             System.err.println("El archivo no se encontro:"+e.getMessage());
+        }catch(IOException ioe) {
+            System.err.println("Error al procesar archivo: "+ioe.getMessage());
+            ioe.printStackTrace();
+        }
+
+    }
+
+    public void guardarInventarioComponente(){
+        String[] ComponenteHEADERS = {"id","idSucursal","cantidad","tipo","nombre","precio","descripcion","resumen","dispsitivoPertence","descripcion_fisica", "informacinAdicional"};
+
+
+        try (
+                FileWriter out = new FileWriter("src/main/java/recursos/inventarioGeneralComponente.csv");
+                CSVPrinter printerComponente = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(ComponenteHEADERS))) {
+
+            for (Producto p: this.tienda.getInventarioGeneral())
+                if(p.getTipo()=="0"){
+                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen(),p.imprimirInfo());
+                }
+
+
+
+
+
+        }catch(IOException ioe) {
+            System.err.println("Error al procesar archivo: "+ioe.getMessage());
+            ioe.printStackTrace();
+        }
+
+    }
+
+    public void guardarInventarioDispositivo(){
+        String[] DispositivoHEADERS = {"id","idSucursal","cantidad","tipo","nombre","precio","descripcion","resumen","pantalla","almacenamiento","procesamiento","tecnicas","descripcion_fisica","conectividad","informacinAdicional"};
+
+        try (
+                FileWriter out = new FileWriter("src/main/java/recursos/inventarioGeneralDispositivo.csv");
+                CSVPrinter printerComponente = new CSVPrinter(out,CSVFormat.DEFAULT.withHeader(DispositivoHEADERS))) {
+
+            for (Producto p: this.tienda.getInventarioGeneral())
+                if(p.getTipo()=="1"){
+                    printerComponente.printRecord(p.getId(),p.getIdSucursal(),p.getCantidad(),p.getTipo(),p.getNombre(),p.getPrecio(),p.getDescripcion(),p.getResumen());
+                }
+
+
+
+
+
         }catch(IOException ioe) {
             System.err.println("Error al procesar archivo: "+ioe.getMessage());
             ioe.printStackTrace();
