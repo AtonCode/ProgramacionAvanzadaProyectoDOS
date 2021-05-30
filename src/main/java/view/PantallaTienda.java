@@ -113,8 +113,8 @@ public class PantallaTienda {
                             System.out.println("-------------------------------------------------");
                             System.out.println(" ");
                             System.out.println("Digite el ID Sucursal: ");
-                            double idSucursal;
-                            idSucursal=entrada.nextDouble();
+                            int idSucursal;
+                            idSucursal=entrada.nextInt();
                             entrada.reset();
 
                             int contandor=0;
@@ -130,13 +130,12 @@ public class PantallaTienda {
 
                                             case 1:
                                                 System.out.println(" ");
-                                                System.out.println("Productos de la Sucursal");
+                                                System.out.println("Productos de la Sucursal: "+controlTienda.getTienda().getSucursales().get(contandor-1).getNombre());
                                                 System.out.println(" ");
                                                 System.out.println("---------------------------------------------------------------");
                                                 for(Producto producto : controlTienda.getTienda().getSucursales().get(contandor-1).getInventario()){
-                                                    if(producto.getId()==controlTienda.getTienda().getSucursales().get(contandor-1).getIdSucursal()){
-
-                                                        System.out.println("Disponibilidad: "+ producto.isDisponibilidad());
+                                                    if(producto.isDisponibilidad()==true){
+                                                        
                                                         System.out.println("Nombre Producto: "+ producto.getNombre());
                                                         System.out.println("Numeros de Producto: "+ producto.getCantidad());
                                                         System.out.println("Precio $: "+ producto.getPrecio());
@@ -164,10 +163,12 @@ public class PantallaTienda {
                                             case 3:// Eliminar Producto
                                                 entrada.reset();
                                                 System.out.println(" ");
-                                                System.out.println("Eliminar Producto de la Sucursal");
+                                                System.out.println("---------------------------------------------------------------");
+                                                System.out.println("Eliminar Producto de la Sucursal"+controlTienda.getTienda().getSucursales().get(contandor-1).getUbicacion());
                                                 System.out.println(" ");
                                                 System.out.println("---------------------------------------------------------------");
-                                                System.out.println("Digita el ID del Producto que desa Eliminar ");
+                                                System.out.println("Digita el ID del Producto que desa Eliminar: ");
+                                                entrada.reset();
                                                 int idProductoEliminar = entrada.nextInt();
                                                 entrada.reset();
 
