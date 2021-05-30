@@ -526,115 +526,85 @@ public class PantallaTienda {
                                 System.out.println("Ingrese la cedula del cliente que realiza la compra: ");
                                 entrada.reset();
                                 cedula=entrada.nextDouble();
-                                for(Cliente temp:controlTienda.getTienda().getClientesGeneral()){
-
-                                    if(temp.getCedula()==cedula){
+                                for(Cliente cliente:controlTienda.getTienda().getClientesGeneral()) {
+                                    if (cliente.getCedula() == cedula) {
                                         int idsuc;
                                         System.out.println("                                    ");
                                         System.out.println("----------------------------------------------");
                                         System.out.println("Ingrese el ID de la sucursal donde desea realizar la compra: ");
                                         entrada.reset();
-                                        idsuc=entrada.nextInt();
+                                        idsuc = entrada.nextInt();
                                         System.out.println("----------------------------------------------");
-                                        for(Sucursal tempSuc: controlTienda.getTienda().getSucursales()){
-                                            if(tempSuc.getIdSucursal()==idsuc){
+                                        for (Sucursal sucursal : controlTienda.getTienda().getSucursales()) {
+                                            if (sucursal.getIdSucursal() == idsuc) {
+                                                int elect4=1;
+                                                while (elect4==1) {
+                                                    int desicion;
+                                                    desicion = menuComprar(cliente, sucursal);
+                                                    ArrayList<Producto> carritoProductos = new ArrayList<Producto>();
 
-                                                int des;
-                                                int elec8=1;
-                                                while(elec8==1){
-                                                des=menuComprar(temp);
-                                                Venta venta=new Venta();
-                                                    ArrayList<Producto> carrito=new ArrayList<Producto>();
-                                                switch (des){
-                                                    case 1:
-                                                        for(Producto tempPr: controlTienda.getTienda().getInventarioGeneral()){
-                                                            if(tempPr.getIdSucursal()==idsuc){
-                                                                System.out.println("Nombre: "+tempPr.getNombre());
-                                                                System.out.println("ID: "+tempPr.getId());
-                                                                System.out.println("Cantidad: "+tempPr.getCantidad());
-                                                                System.out.println("Disponibilidad: "+tempPr.isDisponibilidad());
-                                                                System.out.println("Tipo: "+tempPr.getTipo());
-                                                                System.out.println("Precio: "+tempPr.getPrecio());
+                                                    if (desicion == 1) {
+                                                        for (Producto tempPr : controlTienda.getTienda().getInventarioGeneral()) {
+                                                            if (tempPr.getIdSucursal() == idsuc) {
+                                                                System.out.println("Nombre: " + tempPr.getNombre());
+                                                                System.out.println("ID: " + tempPr.getId());
+                                                                System.out.println("Cantidad: " + tempPr.getCantidad());
+                                                                System.out.println("Disponibilidad: " + tempPr.isDisponibilidad());
+                                                                System.out.println("Tipo: " + tempPr.getTipo());
+                                                                System.out.println("Precio: " + tempPr.getPrecio());
                                                                 System.out.println("----------------------------------------------");
                                                             }
                                                         }
-                                                        break;
-                                                    case 2:
-                                                        int elect4=1;
-                                                        while(elect4==1){
-                                                            double id;
-                                                            System.out.println("ingrese el ID del producto que desas comprar: ");
+                                                        int elect5 = 1;
+                                                        while (elect5 == 1) {
+                                                            System.out.println("para comprar ingrese ID del producto que desea ");
                                                             entrada.reset();
-
-                                                            id=entrada.nextDouble();
-
-                                                            for(Producto productos: controlTienda.getTienda().getInventarioGeneral()){
-                                                                if((productos.getId()==id) && (productos.getIdSucursal()==idsuc)){
-                                                                    System.out.println("nombre del producto: "+productos.getNombre());
-                                                                    System.out.println("precio: "+productos.getPrecio());
-                                                                    System.out.println("----------------------------------------------");
-                                                                    System.out.println("Seguro desea agregar este producto");
-                                                                    int desi=0;
+                                                            double id = entrada.nextDouble();
+                                                            for (Producto producto : controlTienda.getTienda().getInventarioGeneral()) {
+                                                                if ((producto.getIdSucursal() == idsuc) && (producto.getId() == id)) {
+                                                                    int nuevaCantidad = producto.getCantidad() - 1;
+                                                                    producto.setCantidad(nuevaCantidad);
+                                                                    carritoProductos.add(producto);
+                                                                    System.out.println("desea agregar otro prodcuto?");
                                                                     System.out.println("1). si");
                                                                     System.out.println("2). No");
                                                                     entrada.reset();
-                                                                    desi=entrada.nextInt();
-
-                                                                    if(desi==1){
-
-                                                                        carrito.add(productos);
-                                                                        System.out.println("entro" +carrito.size());
-                                                                        productos.setCantidad(productos.getCantidad()-1);
-
-                                                                        System.out.println("desea agrgar otro prodcuto?");
-                                                                        System.out.println("1). si");
-                                                                        System.out.println("2). No");
-                                                                        entrada.reset();
-                                                                        elect4=entrada.nextInt();
-                                                                        break;
-
-                                                                    }else{ break;}
-                                                                }
-                                                                else{
-                                                                    System.out.println("Id no encntrado");
-                                                                    break;
+                                                                    elect5 = entrada.nextInt();
                                                                 }
                                                             }
-                                                            venta.setCarritoCompra(carrito);
                                                         }
-                                                        break;
-                                                    case 3:
-
-                                                        double cont=0;
-                                                        System.out.println("Carrito de compras del usuario: "+ temp.getNombre());
-
-                                                        for(Producto product: venta.getCarritoCompra()){
-
-                                                            System.out.println("normbre del producto "+product.getNombre());
-                                                            System.out.println("ID del producto "+product.getId());
-                                                            cont=(product.getPrecio())+cont;
-
+                                                        cliente.comprar(carritoProductos);
+                                                        carritoProductos.clear();
+                                                        for (Factura factura: cliente.getHistorialCompras()){
+                                                            factura.imprimir();
+                                                            factura.generar_txt();
                                                         }
-                                                        System.out.println("----------------------------------");
-                                                        System.out.println("valor aprox: "+ cont);
-                                                        System.out.println("cantidad de productos: "+ venta.getNumeroProductos());
-                                                        break;
-                                                    case 4:
+                                                    }
+                                                    if(desicion==2){
+                                                        int elector6=1;
+                                                        while (elector6==1)
+                                                        System.out.println("ingrese los datos de la persona que desea buscar su historial: ");
+                                                        System.out.println("                                    ");
+                                                        System.out.println("------------------------------------------------");
+                                                        System.out.println("ingrese la cedula: ");
+                                                        double ced;
+                                                        entrada.reset();
+                                                        ced = entrada.nextDouble();
 
-                                                        break;
-                                                    case 5:
-                                                        elec8=2;
-                                                        break;
 
-                                                    default:
-                                                        System.out.println("Eleccion de numero no valido");
-                                                  }
-                                               }
+                                                        System.out.println(controlTienda.buscarCliente(ced).getHistorialCompras());
+                                                        System.out.print("desea buscar otro cliente? ");
+                                                        System.out.print("1). Si");
+                                                        System.out.print("2). No");
+                                                        entrada.reset();
+                                                        elector6 = entrada.nextInt();
+                                                    }
+                                                }
                                             }
                                         }
                                     }
+                                    break;
                                 }
-                                break;
                             case 7:
                                 elector3 = 2;
                                 break;
@@ -756,7 +726,7 @@ public class PantallaTienda {
         System.out.println("-----------------------------------------------");
         System.out.println("         Menu Sucursal          ");
         System.out.println("-----------------------------------------------");
-        System.out.println("1) Mostrar Inventario ");//falta
+        System.out.println("1) Mostrar Inventario ");
         System.out.println("2) Agregar producto ");
         System.out.println("3) Eliminar producto ");
         System.out.println("4) Editar cantidad de producto");
@@ -781,19 +751,17 @@ public class PantallaTienda {
 
     }
 
-    public static int menuComprar(Cliente cliente){
+    public static int menuComprar(Cliente cliente, Sucursal sucursal){
         int opcion;
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Bienvenido " + cliente.getNombre());
+        System.out.println("Bienvenido " + cliente.getNombre()+'\t'+"A la sucursal: "+sucursal.getNombre());
         System.out.println("                                ");
         System.out.println("-----------------------------------------------");
         System.out.println("               Menu Compra         ");
         System.out.println("-----------------------------------------------");
-        System.out.println("1).Ver Produtos ");
-        System.out.println("2).Agregar a carrito ");
-        System.out.println("3).mostrar carrito ");
-        System.out.println("4).Facturar ");
-        System.out.println("5).Salir ");
+        System.out.println("1).Ver Produtos, comprar y facturar ");
+        System.out.println("2). Ver historial de compra");
+        System.out.println("3).Salir ");
         System.out.println("Dijita el numero de la opcion que desee: ");
         opcion = entrada.nextInt();
 

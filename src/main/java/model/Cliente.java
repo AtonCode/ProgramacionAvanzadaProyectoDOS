@@ -25,7 +25,11 @@ public class Cliente{
         return nombre;
     }
 
-    public void HistorialCompras(Factura factura) {
+    public void comprar(ArrayList<Producto> producto){
+        Factura factura=new Factura(producto);
+        factura.calcular_TotalPrecio();
+        factura.getTotalPrecio();
+        factura.getNumeroProductos();
         this.historialCompras.add(factura);
     }
 

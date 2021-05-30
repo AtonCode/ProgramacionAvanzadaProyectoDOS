@@ -13,9 +13,6 @@ public class Factura {
     private Date fecha;
     private ArrayList<Producto> carrito;// recive de venta
 
-    public Factura() {
-    }
-
     public Factura(ArrayList<Producto> carritoCompra) {
         this.carrito = carritoCompra;
         this.fecha = new Date();
@@ -25,9 +22,6 @@ public class Factura {
         return totalPrecio;
     }
 
-    public ArrayList<Producto> getCarritoCompra() {
-        return carrito;
-    }
 
     public int getNumeroProductos() {
         return this.carrito.size();
@@ -57,7 +51,7 @@ public class Factura {
     public void generar_txt() {
 
         try (
-             FileWriter fw = new FileWriter("factura.txt");
+             FileWriter fw = new FileWriter("src/main/java/recursos/factura.txt");
              BufferedWriter bw = new BufferedWriter(fw)) {
             for (Producto p: this.carrito) {
                 bw.write("Fecha: "+this.fecha);
