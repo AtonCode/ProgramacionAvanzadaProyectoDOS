@@ -16,7 +16,7 @@ public class ControlTienda {
     public ControlTienda() {
         this.tienda = new Tienda("GigaByte", "WWW");
         this.controlInventario = new ControlInventario(this.tienda);
-        this.controlInventario.cargar_inventarioProductosComponente("/Users/atoncode/Documents/GitHub/ProgramacionAvanzadaProyectoDOS/src/main/java/recursos/a.csv");
+        this.controlInventario.cargar_inventarioProductosComponente("src/main/java/recursos/a.csv");
         //this.controlInventario.cargar_inventarioProductosDispositivo("/Users/atoncode/Documents/GitHub/ProgramacionAvanzadaProyectoDOS/src/main/java/recursos/b.csv");
 
     }
@@ -123,7 +123,8 @@ public class ControlTienda {
         }
     }
 
-    public void editarCantidadProductoInventario(int id, int nuevaCantidad){
+    public void editarCantidadProductoInventario(double id, int nuevaCantidad){
+
         for (Producto p: this.tienda.getInventarioGeneral()) {
             if((p.getId() == id)){
                 p.setCantidad(nuevaCantidad);

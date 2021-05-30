@@ -331,8 +331,46 @@ public class PantallaTienda {
                                                     System.out.println(" ");
                                                 }
                                                 break;
-                                            case 4:
-                                                entrada.reset();
+                                            case 4://editar cantidad de producto
+                                                int elec7=1;
+                                                while (elec7==1) {
+                                                    double id;
+                                                    System.out.println("ingrese el ID del producto del que desea modificar la cantidad");
+                                                    entrada.reset();
+                                                    id=entrada.nextDouble();
+
+                                                    for (Producto producto : controlTienda.getTienda().getInventarioGeneral()) {
+                                                        if ((producto.getId()==id) && (producto.getIdSucursal() == controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getIdSucursal())){
+                                                            System.out.println("ingrese la cantidad");
+                                                            int cantidad;
+                                                            cantidad=entrada.nextInt();
+                                                            System.out.println("ID del prodcuto que va a modificar: "+producto.getId());
+                                                            System.out.println("Nombre del producto al que desea cambiar cantidad: "+producto.getNombre());
+                                                            System.out.println("Cantidad inicial del producto: "+producto.getCantidad());
+                                                            System.out.println("---------------------------------");
+                                                            System.out.println("   ");
+                                                            System.out.println(" ");
+
+                                                            controlTienda.editarCantidadProductoInventario(id,cantidad);
+
+                                                            System.out.println("ID del prodcuto que modifico : "+producto.getId());
+                                                            System.out.println("Nombre del producto que modifico : "+producto.getNombre());
+                                                            System.out.println("Cantidad final del producto : "+producto.getCantidad());
+                                                            System.out.println("---------------------------------");
+                                                            System.out.println("   ");
+                                                            System.out.println(" ");
+                                                            break;
+                                                        }
+                                                    }
+                                                    System.out.println("Desea modificar mas productos? ");
+                                                    System.out.println("1). Si");
+                                                    System.out.println("2). No");
+                                                    entrada.reset();
+                                                    elec7=entrada.nextInt();
+                                                    System.out.println("");
+                                                }
+                                                break;
+                                            case 5:
                                                 elector3=2;
                                                 break;
                                             default:
@@ -488,6 +526,7 @@ public class PantallaTienda {
                     }
                     break;
                 case 3:
+
                     entrada.reset();
                     int opt = opcionesInventario();
                         if(opt==1){
@@ -516,6 +555,7 @@ public class PantallaTienda {
 
                     }
 
+
                     break;
 
                 case 4:
@@ -538,7 +578,7 @@ public class PantallaTienda {
         System.out.println("-----------------------------------------------");
         System.out.println("1) Opciones Sucursales ");
         System.out.println("2) Opciones Cliente ");
-        System.out.println("3) Opciones inventario ");//falta
+        System.out.println("3) Guardar inventario ");
         System.out.println("4) Salir");
         System.out.println("Dijita el numero de la opcion que desee: ");
         eleccion = entrada.nextInt();
@@ -584,10 +624,11 @@ public class PantallaTienda {
         System.out.println("-----------------------------------------------");
         System.out.println("         Menu Sucursal          ");
         System.out.println("-----------------------------------------------");
-        System.out.println("1) mostrar Inventario ");//falta
-        System.out.println("2) agregar producto ");
-        System.out.println("3) eliminar producto ");
-        System.out.println("4) Salir");
+        System.out.println("1) Mostrar Inventario ");//falta
+        System.out.println("2) Agregar producto ");
+        System.out.println("3) Eliminar producto ");
+        System.out.println("4) Editar cantidad de producto");
+        System.out.println("5) Salir");
         System.out.println("Dijita el numero de la opcion que desee: ");
         opcion = entrada.nextInt();
 
@@ -599,6 +640,7 @@ public class PantallaTienda {
         System.out.println("1) Guardar Inventario");
         System.out.println("2) Buscar Producto");
         System.out.println("3) salir");
+
         System.out.println("Dijita el numero de la opcion que desee: ");
 
         opcion= entrada.nextInt();
