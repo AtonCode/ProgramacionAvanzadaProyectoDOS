@@ -17,7 +17,7 @@ public class PantallaTienda {
         //Sucursales
         controlTienda.crearSucursal(1,"La 45", "Bogota D.C");
         controlTienda.crearSucursal(2,"La 100", "Villavicencio");
-        controlTienda.crearSucursal(4,"La 100", "Villavicencio");
+        controlTienda.crearSucursal(3,"La 100", "Villavicencio");
         //Clientes
         controlTienda.crearCliente(1, "Aton");
         controlTienda.crearCliente(2, "Natalia");
@@ -488,9 +488,33 @@ public class PantallaTienda {
                     }
                     break;
                 case 3:
-                    // ControlTienda.ControlInventario.CargarInventario();
+                    entrada.reset();
+                    int opt = opcionesInventario();
+                        if(opt==1){
+                            //ControlTienda.ControlInventario.GuardarInventario();
+                            System.out.println("Inventario Guardado");
+                            System.out.println(" ");
+                        }
+                    if(opt==2){
+                        System.out.println("---------------------------------------------------------------");
+                        System.out.println("Ingresa el ID del Producto que desea buscar");
+                        double idProducto = entrada.nextDouble();
+                        System.out.println(" ");
+                        System.out.println("---------------------------------------------------------------");
+                        for (Producto producto: controlTienda.getTienda().getInventarioGeneral()) {
+                            if(producto.getId() == idProducto){
+                                System.out.println("ID Producto: "+ producto.getId());
+                                System.out.println("ID Sucursal pertenece: " + producto.getIdSucursal());
+                                System.out.println("Nombre Producto: "+ producto.getNombre());
+                                System.out.println("Numeros de Producto: "+ producto.getCantidad());
+                                System.out.println("Precio $: "+ producto.getPrecio());
+                                System.out.println("---------------------------------------------------------------");
+                                System.out.println(" ");
+                                break;
+                            }
+                        }
 
-                    //ControlTienda.ControlInventario.GuardarInventario();
+                    }
 
                     break;
 
@@ -572,10 +596,9 @@ public class PantallaTienda {
     public static int opcionesInventario(){
         int opcion;
         Scanner entrada = new Scanner(System.in);
-        System.out.println("1) Cargar Inventario");
-        System.out.println("2) Guardar Inventario");
-        System.out.println("3) Crear Inventario general");
-        System.out.println("4) salir");
+        System.out.println("1) Guardar Inventario");
+        System.out.println("2) Buscar Producto");
+        System.out.println("3) salir");
         System.out.println("Dijita el numero de la opcion que desee: ");
 
         opcion= entrada.nextInt();
