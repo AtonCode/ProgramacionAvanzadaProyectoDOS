@@ -1,3 +1,4 @@
 id,idSucursal,cantidad,tipo,nombre,precio,descripcion,resumen,dispsitivoPertence,descripcion_fisica,informacinAdicional
-1.0,1.0,2,C,Pantalla LG HD,100.0,nanoLeds,Ultrawide,"29:16 es su formato,Computador Mesa Custom,29'' con parlantes"
+5.0,1.0,1,C,Pantalla LG HD,100.0,nanoLeds,Ultrawide,"29:16 es su formato,Computador Mesa Custom,29'' con parlantes"
 2.0,2.0,2,C,GPU NVIDIA GTX 3080Ti,300.0,Unidad de procesamiento gráfico,null,"Computador Mesa Custom,10 núcleos Turing,Requiere de una fuente de 600w"
+22.0,5.0,2,componente,jj,22.0,ddd,ddd,"wwww,ww,"

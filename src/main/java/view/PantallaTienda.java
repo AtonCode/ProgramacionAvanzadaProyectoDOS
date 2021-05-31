@@ -348,6 +348,7 @@ public class PantallaTienda {
                                                                 controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getInventario().remove(producto);
                                                                 controlTienda.eliminarProductoInventario(idProductoEliminar);
                                                                 System.out.println(" ");
+                                                                break;
                                                             }
                                                         }
                                                         System.out.println("   ");
