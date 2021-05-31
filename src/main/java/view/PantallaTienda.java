@@ -35,29 +35,32 @@ public class PantallaTienda {
                         int eleccion = OpcionesSucursales();
                         switch (eleccion) {
                             case 1: // crea una sucursal
-                                int count = 3;
+                                int count = 4;
                                 int opt = 1;
+                                Scanner n=new Scanner(System.in);
+                                Scanner direc=new Scanner(System.in);
                                 while (opt == 1) {
 
                                     System.out.println(" Ingrese los datos de la  nueva sucursal");
                                     System.out.println("                                    ");
                                     System.out.println("------------------------------------");
-
                                     System.out.println(" Ingrese nombre: ");
                                     String nombre;
-                                    entrada.reset();
-                                    nombre = entrada.nextLine();
+                                    n.reset();
+                                    nombre = n.nextLine();
+                                    n.reset();
 
                                     System.out.println("                                    ");
                                     System.out.println("------------------------------------");
-
                                     System.out.println(" Ingrese la direccion: ");
                                     String direccion;
                                     entrada.reset();
-                                    direccion = entrada.nextLine();
+                                    direc.reset();
+                                    direccion = direc.nextLine();
+                                    direc.reset();
+
                                     controlTienda.crearSucursal(count, nombre, direccion);
                                     count++;
-
                                     System.out.println("------------------------------------");
                                     System.out.println("Desea Crear Una mas ");
                                     System.out.println("1).si");
@@ -66,6 +69,7 @@ public class PantallaTienda {
                                     opt = entrada.nextInt();
                                     System.out.println("------------------------------------");
                                     System.out.println("------------------------------------");
+                                    entrada.reset();
                                 }
                                 break;
                             case 2:
@@ -158,6 +162,7 @@ public class PantallaTienda {
                                                 case 2:// Añadir Producto
                                                     int elec4 = 1;
                                                     while (elec4 == 1) {
+                                                        Scanner sc= new Scanner(System.in);
                                                         entrada.reset();
                                                         System.out.println("-------------------------------------");
 
@@ -178,40 +183,50 @@ public class PantallaTienda {
                                                         int tipo = 0;
                                                         System.out.println("1). Componente");
                                                         System.out.println("2). Dispositivo");
+                                                        entrada.reset();
+                                                        tipo=entrada.nextInt();
+                                                        entrada.reset();
                                                         if (tipo == 1) {
 
                                                             System.out.println("Ingrese el nombre");
                                                             String nombre;
-                                                            nombre = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            nombre = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese Precio");
                                                             int precio;
+                                                            entrada.reset();
                                                             precio = entrada.nextInt();
                                                             entrada.reset();
 
                                                             System.out.println("Ingrese descripcion");
                                                             String descripcion;
-                                                            descripcion = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            descripcion = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese el resumen del componente ");
                                                             String resumen;
-                                                            resumen = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            resumen =sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese al dispositivo que pertenece");
                                                             String dispositivo;
-                                                            dispositivo = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            dispositivo = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese Descripcion fisica");
                                                             String descripcionFisica;
-                                                            descripcionFisica = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            descripcionFisica = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese Descrpcion adicional ");
                                                             String descripcionAdicional;
+                                                            sc.reset();
                                                             descripcionAdicional = entrada.nextLine();
                                                             entrada.reset();
 
@@ -229,62 +244,74 @@ public class PantallaTienda {
                                                             System.out.println("   ");
 
                                                         }
-                                                        if (tipo == 2) {
+                                                        entrada.reset();
+                                                        if(tipo==2){
 
                                                             System.out.println("Ingrese el nombre");
                                                             String nombre;
-                                                            nombre = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            nombre = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese Precio");
                                                             int precio;
+                                                            entrada.reset();
                                                             precio = entrada.nextInt();
                                                             entrada.reset();
 
                                                             System.out.println("Ingrese descripcion");
                                                             String descripcion;
-                                                            descripcion = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            descripcion = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese el resumen del dispositivo ");
                                                             String resumen;
-                                                            resumen = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            resumen = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese el tipo de pantalla");
                                                             String tipoPantalla;
-                                                            tipoPantalla = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            tipoPantalla = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese almacenamiento");
                                                             String almacenamiento;
-                                                            almacenamiento = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            almacenamiento = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese su procesamiento");
                                                             String procesamiento;
-                                                            procesamiento = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            procesamiento = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese su tecnica");
                                                             String tecnica;
-                                                            tecnica = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            tecnica = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese su descripcion fisica");
                                                             String descripcionFisica;
-                                                            descripcionFisica = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            descripcionFisica = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese su conectividad");
                                                             String conectividad;
-                                                            conectividad = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            conectividad = sc.nextLine();
+                                                            sc.reset();
 
                                                             System.out.println("Ingrese su infrmacion adicional");
                                                             String informacionAdicional;
-                                                            informacionAdicional = entrada.nextLine();
-                                                            entrada.reset();
+                                                            sc.reset();
+                                                            informacionAdicional = sc.nextLine();
+                                                            sc.reset();
 
                                                             Producto temp = new Dispositivo(idPrducto, idSucursal, cantidad, "Dispositivo", nombre, precio, descripcion, resumen, tipoPantalla, almacenamiento, procesamiento, tecnica, descripcionFisica, conectividad, informacionAdicional);
                                                             controlTienda.getTienda().getSucursales().get((controlTienda.getTienda().getSucursales().indexOf(sucursal))).getInventario().add(temp);
