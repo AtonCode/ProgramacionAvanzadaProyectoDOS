@@ -590,12 +590,13 @@ public class PantallaTienda {
                                                             double ced;
                                                             entrada.reset();
                                                             ced = entrada.nextDouble();
+                                                            for(Factura factura:controlTienda.buscarCliente(ced).getHistorialCompras()){
+                                                                factura.imprimir();
+                                                            }
 
-
-                                                            System.out.println(controlTienda.buscarCliente(ced).getHistorialCompras());
-                                                            System.out.print("desea buscar otro cliente? ");
-                                                            System.out.print("1). Si");
-                                                            System.out.print("2). No");
+                                                            System.out.println("desea buscar otro cliente? ");
+                                                            System.out.println("1). Si");
+                                                            System.out.println("2). No");
                                                             entrada.reset();
                                                             elector6 = entrada.nextInt();
                                                         }
