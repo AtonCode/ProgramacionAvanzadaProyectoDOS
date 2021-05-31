@@ -406,7 +406,6 @@ public class PantallaTienda {
                                     System.out.println("------------------------------------------------");
                                     System.out.println("ingrese la cedula: ");
                                     double cedula;
-
                                     entrada.reset();
                                     cedula = entrada.nextDouble();
 
@@ -426,7 +425,6 @@ public class PantallaTienda {
                                     entrada.reset();
                                     elec3 = entrada.nextInt();
                                     entrada.reset();
-
                                 }
                                 break;
 
@@ -463,8 +461,6 @@ public class PantallaTienda {
                                     double cedula;
                                     entrada.reset();
                                     cedula = entrada.nextDouble();
-
-
                                     System.out.println(controlTienda.buscarCliente(cedula).getHistorialCompras());
                                     System.out.print("desea buscar otro cliente? ");
                                     System.out.print("1). Si");
@@ -482,6 +478,7 @@ public class PantallaTienda {
                                     double cedulat;
                                     entrada.reset();
                                     cedulat = entrada.nextDouble();
+
                                     System.out.println("Nombre: " + controlTienda.buscarCliente(cedulat).getNombre());
                                     System.out.println("Cedula: " + controlTienda.buscarCliente(cedulat).getCedula());
                                     int cont = 0;
@@ -519,8 +516,8 @@ public class PantallaTienda {
                                     System.out.println("----------------------------------------------");
                                 }
                                 break;
-                            case 6:
 
+                                case 6:
                                 double cedula;
                                 System.out.println("Bienvenido a la opcion de comprar ");
                                 System.out.println("Ingrese la cedula del cliente que realiza la compra: ");
@@ -534,11 +531,13 @@ public class PantallaTienda {
                                         System.out.println("Ingrese el ID de la sucursal donde desea realizar la compra: ");
                                         entrada.reset();
                                         idsuc = entrada.nextInt();
+
                                         System.out.println("----------------------------------------------");
                                         for (Sucursal sucursal : controlTienda.getTienda().getSucursales()) {
                                             if (sucursal.getIdSucursal() == idsuc) {
-                                                int elect4=1;
-                                                while (elect4==1) {
+
+                                                int elect4 = 1;
+                                                while (elect4 == 1) {
                                                     int desicion;
                                                     desicion = menuComprar(cliente, sucursal);
                                                     ArrayList<Producto> carritoProductos = new ArrayList<Producto>();
@@ -555,6 +554,7 @@ public class PantallaTienda {
                                                                 System.out.println("----------------------------------------------");
                                                             }
                                                         }
+
                                                         int elect5 = 1;
                                                         while (elect5 == 1) {
                                                             System.out.println("para comprar ingrese ID del producto que desea ");
@@ -575,36 +575,41 @@ public class PantallaTienda {
                                                         }
                                                         cliente.comprar(carritoProductos);
                                                         carritoProductos.clear();
-                                                        for (Factura factura: cliente.getHistorialCompras()){
+                                                        for (Factura factura : cliente.getHistorialCompras()) {
                                                             factura.imprimir();
                                                             factura.generar_txt();
                                                         }
                                                     }
-                                                    if(desicion==2){
-                                                        int elector6=1;
-                                                        while (elector6==1)
-                                                        System.out.println("ingrese los datos de la persona que desea buscar su historial: ");
-                                                        System.out.println("                                    ");
-                                                        System.out.println("------------------------------------------------");
-                                                        System.out.println("ingrese la cedula: ");
-                                                        double ced;
-                                                        entrada.reset();
-                                                        ced = entrada.nextDouble();
+                                                    if (desicion == 2) {
+                                                        int elector6 = 1;
+                                                        while (elector6 == 1) {
+                                                            System.out.println("ingrese los datos de la persona que desea buscar su historial: ");
+                                                            System.out.println("                                    ");
+                                                            System.out.println("------------------------------------------------");
+                                                            System.out.println("ingrese la cedula: ");
+                                                            double ced;
+                                                            entrada.reset();
+                                                            ced = entrada.nextDouble();
 
 
-                                                        System.out.println(controlTienda.buscarCliente(ced).getHistorialCompras());
-                                                        System.out.print("desea buscar otro cliente? ");
-                                                        System.out.print("1). Si");
-                                                        System.out.print("2). No");
-                                                        entrada.reset();
-                                                        elector6 = entrada.nextInt();
+                                                            System.out.println(controlTienda.buscarCliente(ced).getHistorialCompras());
+                                                            System.out.print("desea buscar otro cliente? ");
+                                                            System.out.print("1). Si");
+                                                            System.out.print("2). No");
+                                                            entrada.reset();
+                                                            elector6 = entrada.nextInt();
+                                                        }
+                                                    }
+                                                    if (desicion == 3){
+                                                      elec4=2;
+                                                      break;
                                                     }
                                                 }
                                             }
                                         }
                                     }
-                                    break;
                                 }
+                                break;
                             case 7:
                                 elector3 = 2;
                                 break;
@@ -681,7 +686,7 @@ public class PantallaTienda {
         System.out.println("2) Opciones Cliente ");
         System.out.println("3) Opciones inventario ");
         System.out.println("4) Salir");
-        System.out.println("Dijita el numero de la opcion que desee: ");
+        System.out.println("Digita el numero de la opcion que desee: ");
         eleccion = entrada.nextInt();
 
         return eleccion;
@@ -696,7 +701,7 @@ public class PantallaTienda {
         System.out.println("2). Eliminar sucursal");
         System.out.println("3). Elegir sucursal");
         System.out.println("4). Salir");
-        System.out.println("Dijita el numero de la opcion que desee: ");
+        System.out.println("Digita el numero de la opcion que desee: ");
         opcion=sc.nextInt();
         return opcion;
     }
@@ -712,7 +717,7 @@ public class PantallaTienda {
         System.out.println("5). mostrar clientes. ");
         System.out.println("6). comprar");
         System.out.println("7). Salir. ");
-        System.out.println("Dijita el numero de la opcion que desee: ");
+        System.out.println("Digita el numero de la opcion que desee: ");
         opcion=sc.nextInt();
         return opcion;
     }
@@ -731,7 +736,7 @@ public class PantallaTienda {
         System.out.println("3) Eliminar producto ");
         System.out.println("4) Editar cantidad de producto");
         System.out.println("5) Salir");
-        System.out.println("Dijita el numero de la opcion que desee: ");
+        System.out.println("Digita el numero de la opcion que desee: ");
         opcion = entrada.nextInt();
 
         return opcion;
@@ -743,7 +748,7 @@ public class PantallaTienda {
         System.out.println("2) Buscar Producto");
         System.out.println("3) salir");
 
-        System.out.println("Dijita el numero de la opcion que desee: ");
+        System.out.println("Digita el numero de la opcion que desee: ");
 
         opcion= entrada.nextInt();
 
@@ -762,7 +767,7 @@ public class PantallaTienda {
         System.out.println("1).Ver Produtos, comprar y facturar ");
         System.out.println("2). Ver historial de compra");
         System.out.println("3).Salir ");
-        System.out.println("Dijita el numero de la opcion que desee: ");
+        System.out.println("Digita el numero de la opcion que desee: ");
         opcion = entrada.nextInt();
 
         return opcion;
