@@ -14,6 +14,7 @@ public class Factura {
     private ArrayList<Producto> carrito;// recive de venta
 
     public Factura(ArrayList<Producto> carritoCompra) {
+        this.carrito = new ArrayList<Producto>();
         this.carrito = carritoCompra;
         this.fecha = new Date();
     }
@@ -53,11 +54,19 @@ public class Factura {
         try (
              FileWriter fw = new FileWriter("src/main/java/recursos/factura.txt");
              BufferedWriter bw = new BufferedWriter(fw)) {
+
+            bw.write("Factura de Compra");
+            bw.newLine();
+            bw.write("Fecha: "+this.fecha);
+            bw.newLine();
+            bw.write("-----------------------------------------------------------------------------------");
+            bw.newLine();
             for (Producto p: this.carrito) {
-                bw.write("Fecha: "+this.fecha);
                 bw.write("ID: "+p.getId()+"\t"+" Nombre: "+ p.getNombre()+'\t'+" Precio $: "+p.getPrecio());
                 bw.newLine();
             }
+            bw.write("-----------------------------------------------------------------------------------");
+            bw.newLine();
             bw.write("Total de Productos: "+this.cantdiadTotal+'\t'+" Precio Total: $"+this.totalPrecio);
             bw.newLine();
 
@@ -70,13 +79,13 @@ public class Factura {
     }
     public void imprimir(){
         System.out.println("Fecha: "+this.fecha);
-        System.out.println("--------------------------------------");
-        for(Producto producto: carrito){
+        System.out.println("-------------------------------------------------------------------------------");
+        for(Producto producto: this.carrito){
             System.out.println("Nombre: "+producto.getNombre()+'\t'+producto.getPrecio());
         }
-        System.out.println("--------------------------------------");
-        System.out.println("     ");
+        System.out.println("-------------------------------------------------------------------------------");
+        System.out.println(" ");
         System.out.println("Total de productos: "+this.cantdiadTotal+'\t'+" Precio total: "+this.totalPrecio);
-        System.out.println("--------------------------------------");
+        System.out.println("-------------------------------------------------------------------------------");
     }
 }
